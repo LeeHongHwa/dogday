@@ -13,6 +13,7 @@ class DogDayTableViewCell: UITableViewCell {
     private let deadlineDateLabel = UILabel()
     private let remainingDaysLabel = UILabel()
     private let nameLabel = UILabel()
+//    private let progressView = ()
     private let iconImageView = UIImageView(image: #imageLiteral(resourceName: "test"))
     
     static let identifier = String(describing: DogDayTableViewCell.self)

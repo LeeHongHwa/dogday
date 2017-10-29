@@ -10,7 +10,8 @@ import UIKit
 
 class MainViewController: BaseViewController {
     
-    lazy var v = MainView(controlBy: self)
+    var dogDayDatas = DogDays.decode()
+    lazy var v = EmptyMainView(controlBy: self)
     
     override func loadView() {
         self.view = v
@@ -35,11 +36,51 @@ class MainViewController: BaseViewController {
     }
     */
 
+//    @objc func addDayButtonDidTap(_ sender:Any) {
+//        self.v.dateTextField.becomeFirstResponder()
+//    }
+//
+//    @objc func datePickerDidChange(_ sender:Any) {
+////        guard let sender = sender as? UIDatePicker else { return }
+////        let dateFormatter = DateFormatter()
+////        dateFormatter.dateFormat = "yyyy-MM-dd"
+////        self.v.dateTextField.text = dateFormatter.string(from: sender.date)
+////        self.v.dateTextField.resignFirstResponder()
+//    }
+//
+//    @objc func doneButtonDidTab(_ sender:Any) {
+//        let dateFormatter = DateFormatter()
+////        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        dateFormatter.dateFormat = "a hh:mm"
+//        self.v.dateTextField.text = dateFormatter.string(from: self.v.datePicker.date)
+//        self.v.dateTextField.resignFirstResponder()
+//    }
+//    @objc func cnacelButtonDidTab(_ sender:Any) {
+//        self.v.dateTextField.resignFirstResponder()
+//    }
+    @objc func addDayButtonDidTab(_ sender:Any) {
+    
+        let detailViewController = DetailViewController()
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
 }
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(80)
+    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let moreRowAction = UITableViewRowAction(style: .default, title: "편집") { (rowAction, indexPath) in
+            
+        }
+        moreRowAction.backgroundColor = UIColor.green
+        let deleteRowAction = UITableViewRowAction(style: .default, title: "삭제") { (rowAction, indexPath) in
+            
+        }
+        
+        return [deleteRowAction, moreRowAction];
     }
 }
 

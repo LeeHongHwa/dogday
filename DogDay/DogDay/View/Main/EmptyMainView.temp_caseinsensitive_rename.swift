@@ -1,30 +1,28 @@
-////
-////  MainView.swift
-////  DogDay
-////
-////  Created by david on 2017. 10. 14..
-////  Copyright © 2017년 lyhonghwa. All rights reserved.
-////
 //
-//import UIKit
+//  EmptyMainView.swift
+//  DogDay
 //
-//class MainView: BaseView<MainViewController> {
+//  Created by david on 2017. 10. 22..
+//  Copyright © 2017년 lyhonghwa. All rights reserved.
+//
+
+import UIKit
+
+class EmptyMainView: BaseView<MainViewController> {
 //
 //    let tableView = UITableView(frame: UIScreen.main.bounds, style: .plain)
-//    let dateTextField = UITextField(frame: CGRect(origin: CGPoint(x: 0, y: CGFloat(150)), size: CGSize(width: CGFloat(300), height: CGFloat(140))))
-//    let datePicker = UIDatePicker()
 //
 //    override func setupUI() {
 //        //view controller
 //        vc.navigationItem.title = "Dog-Day"
-//        
+//
 //        //tableview
 //        tableView.register(DogDayTableViewCell.self, forCellReuseIdentifier: DogDayTableViewCell.identifier)
-////        tableView.separatorColor = UIColor.clear
+//        //        tableView.separatorColor = UIColor.clear
 //
 //        //데이터 피커 편집쪽에 옮겨야한다.
 //        dateTextField.backgroundColor = UIColor.green
-////        datePicker.datePickerMode = .date
+//        //        datePicker.datePickerMode = .date
 //        datePicker.datePickerMode = .time
 //        dateTextField.inputView = datePicker
 //
@@ -62,5 +60,4 @@
 //        tableView.delegate = vc
 //        tableView.dataSource = vc
 //    }
-//}
-
+}
