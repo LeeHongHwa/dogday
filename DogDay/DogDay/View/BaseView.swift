@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 protocol ViewType: class {
     associatedtype ViewController: ViewControllerType

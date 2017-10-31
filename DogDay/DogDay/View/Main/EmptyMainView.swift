@@ -53,22 +53,22 @@ class EmptyMainView: BaseView<MainViewController> {
         
         self.addSubviews([titleLabel, mainLabel, addDayButton])
         
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top).offset(163.0)
-            make.centerX.equalTo(self)
-        }
+        titleLabel
+            .topAnchor(to: self.topAnchor, constant: CGFloat(163))
+            .centerXAnchor(to: self.centerXAnchor)
+            .activateAnchors()
         
-        mainLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(18.0)
-            make.centerX.equalTo(self)
-        }
+        mainLabel
+            .topAnchor(to: titleLabel.bottomAnchor, constant: CGFloat(18))
+            .centerXAnchor(to: self.centerXAnchor)
+            .activateAnchors()
         
-        addDayButton.snp.makeConstraints { (make) in
-            make.top.equalTo(mainLabel.snp.bottom).offset(52.0)
-            make.height.equalTo(46.0)
-            make.width.equalTo(116.0)
-            make.centerX.equalTo(self)
-        }
+        addDayButton
+            .topAnchor(to: mainLabel.bottomAnchor, constant: CGFloat(52))
+            .widthAnchor(constant: CGFloat(116))
+            .heightAnchor(constant: CGFloat(46))
+            .centerXAnchor(to: self.centerXAnchor)
+            .activateAnchors()
         
         //button
         

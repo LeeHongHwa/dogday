@@ -47,25 +47,27 @@ class DogDayTableViewCell: UITableViewCell {
     }
     
     private func setupConstraints() {
-        deadlineDateLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(contentView.snp.top).offset(UI.baseMargin)
-            make.leading.equalTo(contentView.snp.leading).offset(UI.baseMargin)
-        }
         
-        remainingDaysLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(contentView.snp.top).offset(UI.baseMargin)
-            make.trailing.equalTo(contentView.snp.trailing).inset(UI.baseMargin)
-        }
         
-        nameLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(deadlineDateLabel.snp.bottom).offset(UI.baseMargin)
-            make.leading.equalTo(deadlineDateLabel.snp.leading).offset(0)
-        }
+        deadlineDateLabel
+            .topAnchor(to: contentView.topAnchor, constant: UI.baseMargin)
+            .leadingAnchor(to: contentView.leadingAnchor, constant: UI.baseMargin)
+            .activateAnchors()
         
-        iconImageView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(deadlineDateLabel.snp.bottom).offset(UI.baseMargin)
-            make.trailing.equalTo(remainingDaysLabel.snp.trailing).offset(0)
-        }
+        remainingDaysLabel
+            .topAnchor(to: contentView.topAnchor, constant: UI.baseMargin)
+            .trailingAnchor(to: contentView.trailingAnchor, constant: UI.baseMargin)
+            .activateAnchors()
+        
+        nameLabel
+            .topAnchor(to: deadlineDateLabel.bottomAnchor, constant: UI.baseMargin)
+            .leadingAnchor(to: deadlineDateLabel.leadingAnchor)
+            .activateAnchors()
+        
+        iconImageView
+            .topAnchor(to: deadlineDateLabel.bottomAnchor, constant: UI.baseMargin)
+            .trailingAnchor(to: remainingDaysLabel.trailingAnchor)
+            .activateAnchors()
         
     }
 }

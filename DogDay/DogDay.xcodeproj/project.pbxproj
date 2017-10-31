@@ -25,13 +25,11 @@
 		6375CE3F1FA0CA57004BED12 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375CE3E1FA0CA57004BED12 /* UIImage+Color.swift */; };
 		6375CE411FA0CF95004BED12 /* HHOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375CE401FA0CF95004BED12 /* HHOButton.swift */; };
 		63B148F41FA2235300E48F99 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B148F31FA2235300E48F99 /* DetailViewController.swift */; };
+		63E691201FA8B05F0016A478 /* UIView+LayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E6911F1FA8B05F0016A478 /* UIView+LayoutAnchor.swift */; };
 		63F1075A1F9CC82F0029B9B2 /* UIButton+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F107591F9CC82F0029B9B2 /* UIButton+Convenience.swift */; };
-		685032869363D2150BFE086A /* Pods_DogDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10EEFA6A70AA74D6D657840D /* Pods_DogDay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		10EEFA6A70AA74D6D657840D /* Pods_DogDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		413BAAB4A9469E9A5BE4144A /* Pods-DogDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogDay.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogDay/Pods-DogDay.release.xcconfig"; sourceTree = "<group>"; };
 		631E7CA61F9235C5007CB73E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		631E7CA71F9235C5007CB73E /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		631E7CA91F9235D8007CB73E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -52,8 +50,8 @@
 		6375CE3E1FA0CA57004BED12 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		6375CE401FA0CF95004BED12 /* HHOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHOButton.swift; sourceTree = "<group>"; };
 		63B148F31FA2235300E48F99 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		63E6911F1FA8B05F0016A478 /* UIView+LayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayoutAnchor.swift"; sourceTree = "<group>"; };
 		63F107591F9CC82F0029B9B2 /* UIButton+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Convenience.swift"; sourceTree = "<group>"; };
-		BCE946EE7AD49B988DDCA3D2 /* Pods-DogDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogDay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DogDay/Pods-DogDay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,30 +59,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				685032869363D2150BFE086A /* Pods_DogDay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5D407D7977C1140A1E56378C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				10EEFA6A70AA74D6D657840D /* Pods_DogDay.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5FBB6D31AEC98C459F6790D1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BCE946EE7AD49B988DDCA3D2 /* Pods-DogDay.debug.xcconfig */,
-				413BAAB4A9469E9A5BE4144A /* Pods-DogDay.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		63158D8F1F923DEF0027CBEA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +75,7 @@
 				6375CE3E1FA0CA57004BED12 /* UIImage+Color.swift */,
 				6375CE401FA0CF95004BED12 /* HHOButton.swift */,
 				636C75211FA75ED7002FE52E /* GradientScrollView.swift */,
+				63E6911F1FA8B05F0016A478 /* UIView+LayoutAnchor.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -142,8 +123,6 @@
 			children = (
 				6320EEC51F88B80B005EC9E9 /* DogDay */,
 				6320EEC41F88B80B005EC9E9 /* Products */,
-				5FBB6D31AEC98C459F6790D1 /* Pods */,
-				5D407D7977C1140A1E56378C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,12 +164,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6320EED51F88B80C005EC9E9 /* Build configuration list for PBXNativeTarget "DogDay" */;
 			buildPhases = (
-				B846714EE4E436D4744996FD /* [CP] Check Pods Manifest.lock */,
 				6320EEBF1F88B80B005EC9E9 /* Sources */,
 				6320EEC01F88B80B005EC9E9 /* Frameworks */,
 				6320EEC11F88B80B005EC9E9 /* Resources */,
-				34E58E3E77D0BA65B6F81668 /* [CP] Embed Pods Frameworks */,
-				8DCED8DF75E9B62FCC0B605D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,62 +223,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		34E58E3E77D0BA65B6F81668 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DogDay/Pods-DogDay-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/HCSStarRatingView/HCSStarRatingView.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HCSStarRatingView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DogDay/Pods-DogDay-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8DCED8DF75E9B62FCC0B605D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DogDay/Pods-DogDay-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B846714EE4E436D4744996FD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DogDay-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		6320EEBF1F88B80B005EC9E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -311,6 +231,7 @@
 				631E7CAB1F92361A007CB73E /* BaseViewController.swift in Sources */,
 				633E2AE01F938C4600DAFBC5 /* UIColor+BaseColor.swift in Sources */,
 				636C75241FA768E5002FE52E /* DetailView.swift in Sources */,
+				63E691201FA8B05F0016A478 /* UIView+LayoutAnchor.swift in Sources */,
 				633E2AE21F939FF300DAFBC5 /* UIFont+BaseFont.swift in Sources */,
 				63F1075A1F9CC82F0029B9B2 /* UIButton+Convenience.swift in Sources */,
 				6320283A1F9B6FD6006F607F /* DogDay.swift in Sources */,
@@ -451,7 +372,6 @@
 		};
 		6320EED61F88B80C005EC9E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCE946EE7AD49B988DDCA3D2 /* Pods-DogDay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,7 +388,6 @@
 		};
 		6320EED71F88B80C005EC9E9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 413BAAB4A9469E9A5BE4144A /* Pods-DogDay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
