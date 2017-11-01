@@ -16,21 +16,57 @@ struct DogDay: Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case dogDayType, title, date, time, widgetSetting
+        case dogDayType, title, endDate, endTime, widgetSetting, startTime
     }
     
     var dogDayType: DogDayType
     var title: String
-    var date: Int
-    var time: Int
+    var endDate: Date
+    var endTime: TimeInterval
     var widgetSetting: Bool
+    var startTime: Date
     
-    init(dogDayType: DogDayType, title: String, date: Int, time: Int, widgetSetting: Bool) {
+    var remainDay: Int {
+        return Int((endDate + endTime).timeIntervalSinceNow)
+    }
+    
+    var remainDayPercentage: Int {
+        let totalTimeInterval = ((endDate + endTime) - startTime.timeIntervalSince1970).timeIntervalSince1970
+        let currentTimeInterval = (Date() - startTime.timeIntervalSince1970).timeIntervalSince1970
+        var percentage = Int((currentTimeInterval/totalTimeInterval) * 100)
+        if percentage >= 100 {
+           percentage = 100
+        }
+        return percentage
+    }
+    
+    var nowDateSting: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd/a hh:mm"
+        return dateFormatter.string(from: Date())
+    }
+    
+    var endDateString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd/a hh:mm"
+        return dateFormatter.string(from: endDate + endTime)
+    }
+    
+    var shortRemainDayString: String {
+        return "D-\(remainDay)"
+    }
+    
+    var detailRemainDayString: String {
+        return "\(remainDay)일 남았어요"
+    }
+    
+    init(dogDayType: DogDayType, title: String, endDate: Date, endTime: TimeInterval, widgetSetting: Bool) {
         self.dogDayType = dogDayType
         self.title = title
-        self.date = date
-        self.time = time
+        self.endDate = endDate
+        self.endTime = endTime
         self.widgetSetting = widgetSetting
+        self.startTime = Date()
     }
 }
 
