@@ -31,6 +31,30 @@ extension UIView {
         return self
     }
     
+    func equalWidthAnchor(to anchor: NSLayoutDimension) -> Self {
+        widthAnchor.constraint(equalTo: anchor, constant: 0).isActive = true
+        return self
+    }
+    
+    func equalHeightAnchor(to anchor: NSLayoutDimension) -> Self {
+        heightAnchor.constraint(equalTo: anchor, constant: 0).isActive = true
+        return self
+    }
+    
+    func equalWidthAnchorContentsView(to anchor: NSLayoutDimension) -> Self {
+        let anchor = widthAnchor.constraint(equalTo: anchor, constant: 0)
+        anchor.priority = UILayoutPriority(1)
+        anchor.isActive = true
+        return self
+    }
+    
+    func equalHeightAnchorContentsView(to anchor: NSLayoutDimension) -> Self {
+        let anchor = heightAnchor.constraint(equalTo: anchor, constant: 0)
+        anchor.priority = UILayoutPriority(1)
+        anchor.isActive = true
+        return self
+    }
+    
     func widthAnchor(constant: CGFloat) -> Self {
         widthAnchor.constraint(equalToConstant: constant).isActive = true
         return self

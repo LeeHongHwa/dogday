@@ -5,6 +5,7 @@
 //  Created by david on 2017. 10. 15..
 //  Copyright © 2017년 lyhonghwa. All rights reserved.
 //
+//m17,r12,r16,m24,r16,r16,m46
 
 import UIKit
 
@@ -13,11 +14,23 @@ extension UIFont {
         return UIScreen.main.bounds.width/320.0
     }
     
-    static var title0: UIFont {
+    static var title0_medium: UIFont {
+        return UIFont.systemFont(ofSize: 46.0, weight: .medium)
+    }
+    
+    static var title1_medium: UIFont {
+        return UIFont.systemFont(ofSize: 24.0, weight: .medium)
+    }
+    
+    static var title2: UIFont {
         return UIFont.systemFont(ofSize: 22.359375 * ratio)
     }
     
-    static var main0Text_medium: UIFont {
+    static var main0_regular: UIFont {
+        return UIFont.systemFont(ofSize: 16.0, weight: .regular)
+    }
+    
+    static var main0_medium: UIFont {
         return UIFont.systemFont(ofSize: 16.0, weight: .medium)
     }
     
@@ -25,7 +38,11 @@ extension UIFont {
         return UIFont.systemFont(ofSize: 11.59375 * ratio)
     }
     
-    static func title0Text(_ text:String) -> NSMutableAttributedString {
+    static var main2: UIFont {
+        return UIFont.systemFont(ofSize: 16.0, weight: .regular)
+    }
+    
+    static func title2Text(_ text:String) -> NSMutableAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4.9
         

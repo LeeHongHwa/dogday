@@ -17,8 +17,8 @@ class EmptyMainView: BaseView<MainViewController> {
         backgroundColor = UIColor.emptyBackgroundColor
         //label
         let titleLabel = UILabel()
-        titleLabel.attributedText = UIFont.title0Text("반려견의 일정을\n등록해 보세요!")
-        titleLabel.font = UIFont.title0
+        titleLabel.attributedText = UIFont.title2Text("반려견의 일정을\n등록해 보세요!")
+        titleLabel.font = UIFont.title2
         titleLabel.textColor = UIColor.white
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
@@ -35,7 +35,7 @@ class EmptyMainView: BaseView<MainViewController> {
         addDayButton.setTitleColor(UIColor.emptyAddButtonColor, for: .normal)
         addDayButton.setTitleColor(UIColor.darkerColor(currentColor: UIColor.emptyAddButtonColor), for: .highlighted)
         addDayButton.titleLabel?.textAlignment = .center
-        addDayButton.titleLabel?.font = UIFont.main0Text_medium
+        addDayButton.titleLabel?.font = UIFont.main0_medium
         addDayButton.setImage(#imageLiteral(resourceName: "add_day_btn"), for: .normal)
         
         addDayButton.defaultBackgroundColor = UIColor.white

@@ -18,6 +18,15 @@ extension UIColor: HighlightedColor{
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
     
+    convenience init(red: Int, green: Int, blue: Int, alpha: CGFloat) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        assert(alpha >= 0 && alpha <= 1.0, "Invalid alpha component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
+    }
+    
     convenience init(rgb: Int) {
         self.init(
             red: (rgb >> 16) & 0xFF,
@@ -40,6 +49,22 @@ extension UIColor: HighlightedColor{
     
     static var emptyAddButtonColor: UIColor {
         return UIColor.init(red: 250, green: 42, blue: 106)
+    }
+    
+    static var textFieldBackGroundColor: UIColor {
+        return UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.03)
+    }
+    
+    static var textFieldPlaceHolderColor: UIColor {
+        return UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.20)
+    }
+    
+    static var textFieldPlaceTextColor: UIColor {
+        return UIColor.init(red: 255, green: 255, blue: 255)
+    }
+    
+    static var subTextWhiteColor: UIColor {
+        return UIColor.init(red: 255, green: 255, blue: 255, alpha: 0.56)
     }
 }
 
