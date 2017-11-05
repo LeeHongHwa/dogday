@@ -21,17 +21,22 @@ class EditView: BaseView<EditViewController> {
     var scrollView: GradientScrollView!
     let previousButton = UIButton()
     let nextButton = UIButton()
-    let titleTextField = UITextField()
-    let dateTextField = UITextField()
-    let timeTextField = UITextField()
+    let titleTextField = DogDayTextField()
+    let dateTextField = DogDayTextField()
+    let timeTextField = DogDayTextField()
     let widgetSwitch = UISwitch()
     
     override func setupUI() {
         
         vc.navigationController?.setNavigationBarHidden(false, animated: false)
+        vc.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        vc.navigationController?.clearBackgroundColor()
+        
         vc.navigationItem.title = "일정추가"
         popButton.setImage(#imageLiteral(resourceName: "add_back"), for: .normal)
         registerButton.setImage(#imageLiteral(resourceName: "add_check"), for: .normal)
+        registerButton.isEnabled = false
+        registerButton.alpha = 0.38
         
         let baseScrollView = UIScrollView()
         let contentsView = UIView()
@@ -77,6 +82,7 @@ class EditView: BaseView<EditViewController> {
         titleTextField.font = UIFont.main0_regular
         titleTextField.textColor = UIColor.white
         titleTextField.tintColor = UIColor.white
+        titleTextField.returnKeyType = .done
         
         dateTitleLabel.text = "날짜"
         dateTitleLabel.font = UIFont.main0_medium
@@ -133,13 +139,15 @@ class EditView: BaseView<EditViewController> {
             .activateAnchors()
         
         previousButton
-            .topAnchor(to: scrollView.topAnchor, constant: CGFloat(153))
-            .leadingAnchor(to: scrollView.leadingAnchor, constant: CGFloat(46))
+            .topAnchor(to: scrollView.topAnchor, constant: CGFloat(143))
+            .leadingAnchor(to: scrollView.leadingAnchor, constant: CGFloat(26))
+            .dimensionAnchors(width: CGFloat(44), height: CGFloat(44))
             .activateAnchors()
         
         nextButton
             .topAnchor(to: previousButton.topAnchor)
-            .trailingAnchor(to: scrollView.trailingAnchor, constant: CGFloat(-46))
+            .trailingAnchor(to: scrollView.trailingAnchor, constant: CGFloat(-26))
+            .dimensionAnchors(width: CGFloat(44), height: CGFloat(44))
             .activateAnchors()
         
         titleTextField
@@ -207,19 +215,20 @@ class EditView: BaseView<EditViewController> {
         nextButton.addTarget(vc, action: #selector(vc.nextButtonDidTab(_:)), for: .touchUpInside)
         
         addToolBar(to: dateTextField, type: .date)
-        addToolBar(to: timeTextField, type: .date)
+        addToolBar(to: timeTextField, type: .time)
         
         scrollView.delegate = vc
+        titleTextField.delegate = vc
     }
     
     private func addToolBar(to textField: UITextField, type: PickerType) {
         let datePicker = UIDatePicker()
-        
+        datePicker.locale = Locale(identifier: "ko")
         // ToolBar
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 92, green: 216, blue: 255)
+        toolBar.tintColor = UIColor(red: 0, green: 118, blue: 255)
         toolBar.sizeToFit()
         
         var doneButtonSelector: Selector!

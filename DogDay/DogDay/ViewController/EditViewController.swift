@@ -17,7 +17,7 @@ class EditViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.automaticallyAdjustsScrollViewInsets = false
     }
     
     @objc func popButtonDidTab(_ sender:Any) {
@@ -29,21 +29,31 @@ class EditViewController: BaseViewController {
     }
     
     @objc func previousButtonDidTab(_ sender:Any) {
-        self.navigationController?.popViewController(animated: true)
+        v.scrollView.previousPaging()
     }
     
     @objc func nextButtonDidTab(_ sender:Any) {
-        self.navigationController?.popViewController(animated: true)
+        v.scrollView.nextPaging()
     }
     
     @objc func datePickerDoneButtonDidTab(_ sender:Any) {
+        guard let datePicker = v.dateTextField.inputView as? UIDatePicker else {
+            return
+        }
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        v.dateTextField.text = dateFormatter.string(from: datePicker.date)
+        v.dateTextField.endEditing(true)
     }
     
     @objc func timePickerDoneButtonDidTab(_ sender:Any) {
+        guard let datePicker = v.timeTextField.inputView as? UIDatePicker else {
+            return
+        }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "a hh:mm"
+        v.timeTextField.text = dateFormatter.string(from: datePicker.date)
+        v.timeTextField.endEditing(true)
     }
 
     @objc func cancelButtonDidTab(_ sender:Any) {
@@ -60,5 +70,12 @@ extension EditViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let scrollView = scrollView as? GradientScrollView else { return }
         scrollView.gradientBackground()
+    }
+}
+
+extension EditViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
     }
 }

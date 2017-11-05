@@ -20,6 +20,8 @@
 		633E2AE01F938C4600DAFBC5 /* UIColor+BaseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */; };
 		633E2AE21F939FF300DAFBC5 /* UIFont+BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2AE11F939FF300DAFBC5 /* UIFont+BaseFont.swift */; };
 		633E2AE41F93A3DA00DAFBC5 /* UIView+SubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2AE31F93A3DA00DAFBC5 /* UIView+SubView.swift */; };
+		63585AE01FAF378B0035FD35 /* DogDayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63585ADF1FAF378B0035FD35 /* DogDayTextField.swift */; };
+		63585AE21FAF450B0035FD35 /* UINavigationController+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63585AE11FAF450B0035FD35 /* UINavigationController+Color.swift */; };
 		636C75221FA75ED7002FE52E /* GradientScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C75211FA75ED7002FE52E /* GradientScrollView.swift */; };
 		636C75241FA768E5002FE52E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C75231FA768E5002FE52E /* DetailView.swift */; };
 		6375CE3F1FA0CA57004BED12 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375CE3E1FA0CA57004BED12 /* UIImage+Color.swift */; };
@@ -49,6 +51,8 @@
 		633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+BaseColor.swift"; sourceTree = "<group>"; };
 		633E2AE11F939FF300DAFBC5 /* UIFont+BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+BaseFont.swift"; sourceTree = "<group>"; };
 		633E2AE31F93A3DA00DAFBC5 /* UIView+SubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SubView.swift"; sourceTree = "<group>"; };
+		63585ADF1FAF378B0035FD35 /* DogDayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDayTextField.swift; sourceTree = "<group>"; };
+		63585AE11FAF450B0035FD35 /* UINavigationController+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Color.swift"; sourceTree = "<group>"; };
 		636C75211FA75ED7002FE52E /* GradientScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientScrollView.swift; sourceTree = "<group>"; };
 		636C75231FA768E5002FE52E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		6375CE3E1FA0CA57004BED12 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
@@ -83,7 +87,9 @@
 				63E6911F1FA8B05F0016A478 /* UIView+LayoutAnchor.swift */,
 				636C75211FA75ED7002FE52E /* GradientScrollView.swift */,
 				6375CE401FA0CF95004BED12 /* HHOButton.swift */,
+				63585ADF1FAF378B0035FD35 /* DogDayTextField.swift */,
 				6379FF901FAA0E1400731081 /* DetailLabel.swift */,
+				63585AE11FAF450B0035FD35 /* UINavigationController+Color.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 				631E7CAD1F92361A007CB73E /* MainView.swift in Sources */,
 				633E2ADE1F93824F00DAFBC5 /* DogDayTableViewCell.swift in Sources */,
 				633E2AE41F93A3DA00DAFBC5 /* UIView+SubView.swift in Sources */,
+				63585AE21FAF450B0035FD35 /* UINavigationController+Color.swift in Sources */,
 				636C75221FA75ED7002FE52E /* GradientScrollView.swift in Sources */,
 				631E7CAE1F92361A007CB73E /* BaseView.swift in Sources */,
 				63CF95CC1FAECD3000CB4250 /* SettingViewController.swift in Sources */,
@@ -270,6 +277,7 @@
 				6320EEC71F88B80B005EC9E9 /* AppDelegate.swift in Sources */,
 				6375CE411FA0CF95004BED12 /* HHOButton.swift in Sources */,
 				63CF95C51FAECAE200CB4250 /* EditViewController.swift in Sources */,
+				63585AE01FAF378B0035FD35 /* DogDayTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

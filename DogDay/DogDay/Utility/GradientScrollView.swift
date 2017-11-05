@@ -190,4 +190,32 @@ class GradientScrollView: UIScrollView {
         }
         return UIColor(red: red, green: green, blue: blue, alpha: CGFloat(1))
     }
+    
+    public func nextPaging() {
+        let absoluteOffsetPercentage = self.contentOffset.x/self.frame.size.width
+        let nextIndex = Int(ceil(absoluteOffsetPercentage)) + 1
+
+        self.scrollRectToVisible(CGRect(x: self.frame.width * CGFloat(nextIndex),
+                                        y: 0,
+                                        width: self.frame.width,
+                                        height: self.frame.height),
+                                 animated: true)
+    }
+    
+    public func previousPaging() {
+        let absoluteOffsetPercentage = self.contentOffset.x/self.frame.size.width
+        let previousIndex = Int(floor(absoluteOffsetPercentage)) - 1
+        
+        self.scrollRectToVisible(CGRect(x: self.frame.width * CGFloat(previousIndex),
+                                        y: 0,
+                                        width: self.frame.width,
+                                        height: self.frame.height),
+                                 animated: true)
+    }
+    
+    public func currentIndex() -> Int {
+        let absoluteOffsetPercentage = self.contentOffset.x/self.frame.size.width
+        let currentIndex = Int(floor(absoluteOffsetPercentage))
+       return currentIndex
+    }
 }
