@@ -10,11 +10,15 @@ import UIKit
 
 class EmptyMainView: BaseView<MainViewController> {
 
+    private let addDayButton = HHOButton(type: .custom)
+    
     override func setupUI() {
         //view controller
         vc.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         //root view
         backgroundColor = UIColor.emptyBackgroundColor
+        
         //label
         let titleLabel = UILabel()
         titleLabel.attributedText = UIFont.title2Text("반려견의 일정을\n등록해 보세요!")
@@ -30,7 +34,6 @@ class EmptyMainView: BaseView<MainViewController> {
         mainLabel.numberOfLines = 0
         mainLabel.textAlignment = .center
         
-        let addDayButton = HHOButton(type: .custom)
         addDayButton.setTitle("등록하기", for: .normal)
         addDayButton.setTitleColor(UIColor.emptyAddButtonColor, for: .normal)
         addDayButton.setTitleColor(UIColor.darkerColor(currentColor: UIColor.emptyAddButtonColor), for: .highlighted)
@@ -47,9 +50,6 @@ class EmptyMainView: BaseView<MainViewController> {
         addDayButton.layer.shadowOffset = CGSize(width: 0, height: 2)
         addDayButton.layer.shadowOpacity = 0.14;
         addDayButton.layer.shadowRadius = 4.0;
-        
-        addDayButton.addTarget(vc, action: #selector(vc.addDayButtonDidTab), for: .touchUpInside)
-//        116 46
         
         self.addSubviews([titleLabel, mainLabel, addDayButton])
         
@@ -69,35 +69,9 @@ class EmptyMainView: BaseView<MainViewController> {
             .heightAnchor(constant: CGFloat(46))
             .centerXAnchor(to: self.centerXAnchor)
             .activateAnchors()
-        
-        //button
-        
-//            {
-//                deadlineDateLabel.snp.makeConstraints { (make) -> Void in
-//                    make.top.equalTo(contentView.snp.top).offset(UI.baseMargin)
-//                    make.leading.equalTo(contentView.snp.leading).offset(UI.baseMargin)
-//                }
-//
-//                remainingDaysLabel.snp.makeConstraints { (make) -> Void in
-//                    make.top.equalTo(contentView.snp.top).offset(UI.baseMargin)
-//                    make.trailing.equalTo(contentView.snp.trailing).inset(UI.baseMargin)
-//                }
-//
-//                nameLabel.snp.makeConstraints { (make) -> Void in
-//                    make.top.equalTo(deadlineDateLabel.snp.bottom).offset(UI.baseMargin)
-//                    make.leading.equalTo(deadlineDateLabel.snp.leading).offset(0)
-//                }
-//
-//                iconImageView.snp.makeConstraints { (make) -> Void in
-//                    make.top.equalTo(deadlineDateLabel.snp.bottom).offset(UI.baseMargin)
-//                    make.trailing.equalTo(remainingDaysLabel.snp.trailing).offset(0)
-//                }
-//
-//        }
-
     }
 
     override func setupBinding() {
-        
+        addDayButton.addTarget(vc, action: #selector(vc.addDayButtonDidTab(_:)), for: .touchUpInside)
     }
 }

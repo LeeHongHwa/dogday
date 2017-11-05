@@ -25,10 +25,3 @@ class DetailViewController: BaseViewController {
     }
     
 }
-
-extension DetailViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let scrollView = scrollView as? GradientScrollView else { return }
-        scrollView.gradientBackground()
-    }
-}

@@ -38,8 +38,12 @@ extension UIFont {
         return UIFont.systemFont(ofSize: 11.59375 * ratio)
     }
     
-    static var main2: UIFont {
-        return UIFont.systemFont(ofSize: 16.0, weight: .regular)
+    static var main2_regular: UIFont {
+        return UIFont.systemFont(ofSize: 14.0, weight: .regular)
+    }
+    
+    static var main3_regular: UIFont {
+        return UIFont.systemFont(ofSize: 12.0, weight: .regular)
     }
     
     static func title2Text(_ text:String) -> NSMutableAttributedString {

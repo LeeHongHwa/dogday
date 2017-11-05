@@ -14,7 +14,6 @@ protocol ViewControllerType: class {
 class BaseViewController: UIViewController, ViewControllerType {
     
     // MARK: Initialize
-    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,8 +23,7 @@ class BaseViewController: UIViewController, ViewControllerType {
     }
     
     // MARK: Deinit
-    
     deinit {
-        // print("\(self) has deinitialized")
+         print("\(self) has deinitialized")
     }
 }

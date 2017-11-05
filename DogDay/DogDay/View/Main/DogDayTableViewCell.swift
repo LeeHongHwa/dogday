@@ -10,14 +10,12 @@ import UIKit
 
 class DogDayTableViewCell: UITableViewCell {
     
+    static let identifier = String(describing: DogDayTableViewCell.self)
+    
     private let deadlineDateLabel = UILabel()
     private let remainingDaysLabel = UILabel()
     private let nameLabel = UILabel()
-//    private let progressView = ()
-    private let iconImageView = UIImageView(image: #imageLiteral(resourceName: "test"))
-    
-    static let identifier = String(describing: DogDayTableViewCell.self)
-    
+    private let iconImageView = UIImageView()
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -47,8 +45,6 @@ class DogDayTableViewCell: UITableViewCell {
     }
     
     private func setupConstraints() {
-        
-        
         deadlineDateLabel
             .topAnchor(to: contentView.topAnchor, constant: UI.baseMargin)
             .leadingAnchor(to: contentView.leadingAnchor, constant: UI.baseMargin)

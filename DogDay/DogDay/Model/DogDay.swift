@@ -75,6 +75,13 @@ struct DogDays: Codable {
     
     var items: [DogDay]? = nil
     
+    var isEmpty: Bool {
+        if self.items == nil {
+            return true
+        }
+        return false
+    }
+    
     func encoded() {
         do {
             let dogDayData = try JSONEncoder().encode(self)

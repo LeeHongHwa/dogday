@@ -15,6 +15,11 @@ class DetailLabel: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupUI()
+        setupConstraints()
+    }
+    
+    private func setupUI() {
         self.backgroundColor = UIColor.textFieldBackGroundColor
         self.addSubviews([titleLabel, descriptionLabel])
         
@@ -27,11 +32,9 @@ class DetailLabel: UIView {
         self.descriptionLabel.font = UIFont.main0_regular
         self.descriptionLabel.textColor = UIColor.white
         self.descriptionLabel.textAlignment = .right
-        
-        self.configureLayout()
     }
     
-    private func configureLayout() {
+    private func setupConstraints() {
         self.titleLabel
             .centerXAnchor(to: self.centerXAnchor)
             .centerYAnchor(to: self.centerYAnchor)

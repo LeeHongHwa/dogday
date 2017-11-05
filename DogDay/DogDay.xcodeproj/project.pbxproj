@@ -26,9 +26,11 @@
 		6375CE411FA0CF95004BED12 /* HHOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375CE401FA0CF95004BED12 /* HHOButton.swift */; };
 		6379FF911FAA0E1400731081 /* DetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379FF901FAA0E1400731081 /* DetailLabel.swift */; };
 		63B148F41FA2235300E48F99 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B148F31FA2235300E48F99 /* DetailViewController.swift */; };
+		63CF95C51FAECAE200CB4250 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF95C41FAECAE200CB4250 /* EditViewController.swift */; };
+		63CF95C91FAECC3700CB4250 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF95C81FAECC3700CB4250 /* EditView.swift */; };
+		63CF95CC1FAECD3000CB4250 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF95CA1FAECD3000CB4250 /* SettingViewController.swift */; };
+		63CF95CD1FAECD3000CB4250 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63CF95CB1FAECD3000CB4250 /* SettingViewController.xib */; };
 		63E691201FA8B05F0016A478 /* UIView+LayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E6911F1FA8B05F0016A478 /* UIView+LayoutAnchor.swift */; };
-		63E691221FA8B7950016A478 /* HHOTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E691211FA8B7950016A478 /* HHOTextField.swift */; };
-		63F1075A1F9CC82F0029B9B2 /* UIButton+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F107591F9CC82F0029B9B2 /* UIButton+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,9 +55,11 @@
 		6375CE401FA0CF95004BED12 /* HHOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHOButton.swift; sourceTree = "<group>"; };
 		6379FF901FAA0E1400731081 /* DetailLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabel.swift; sourceTree = "<group>"; };
 		63B148F31FA2235300E48F99 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		63CF95C41FAECAE200CB4250 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		63CF95C81FAECC3700CB4250 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		63CF95CA1FAECD3000CB4250 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		63CF95CB1FAECD3000CB4250 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		63E6911F1FA8B05F0016A478 /* UIView+LayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayoutAnchor.swift"; sourceTree = "<group>"; };
-		63E691211FA8B7950016A478 /* HHOTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHOTextField.swift; sourceTree = "<group>"; };
-		63F107591F9CC82F0029B9B2 /* UIButton+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,12 +79,10 @@
 				633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */,
 				633E2AE11F939FF300DAFBC5 /* UIFont+BaseFont.swift */,
 				633E2AE31F93A3DA00DAFBC5 /* UIView+SubView.swift */,
-				63F107591F9CC82F0029B9B2 /* UIButton+Convenience.swift */,
 				6375CE3E1FA0CA57004BED12 /* UIImage+Color.swift */,
 				63E6911F1FA8B05F0016A478 /* UIView+LayoutAnchor.swift */,
 				636C75211FA75ED7002FE52E /* GradientScrollView.swift */,
 				6375CE401FA0CF95004BED12 /* HHOButton.swift */,
-				63E691211FA8B7950016A478 /* HHOTextField.swift */,
 				6379FF901FAA0E1400731081 /* DetailLabel.swift */,
 			);
 			path = Utility;
@@ -92,6 +94,7 @@
 				631E7CA71F9235C5007CB73E /* BaseView.swift */,
 				631E7CA51F9235C5007CB73E /* Main */,
 				63B148F21FA2230700E48F99 /* Detail */,
+				63CF95C71FAECC0E00CB4250 /* Edit */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,6 +115,9 @@
 				631E7CA91F9235D8007CB73E /* BaseViewController.swift */,
 				631E7CAA1F9235D8007CB73E /* MainViewController.swift */,
 				63B148F31FA2235300E48F99 /* DetailViewController.swift */,
+				63CF95C41FAECAE200CB4250 /* EditViewController.swift */,
+				63CF95CA1FAECD3000CB4250 /* SettingViewController.swift */,
+				63CF95CB1FAECD3000CB4250 /* SettingViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -161,6 +167,14 @@
 				636C75231FA768E5002FE52E /* DetailView.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		63CF95C71FAECC0E00CB4250 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				63CF95C81FAECC3700CB4250 /* EditView.swift */,
+			);
+			path = Edit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6320EED11F88B80C005EC9E9 /* LaunchScreen.storyboard in Resources */,
+				63CF95CD1FAECD3000CB4250 /* SettingViewController.xib in Resources */,
 				6320EECE1F88B80C005EC9E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,12 +251,11 @@
 			files = (
 				631E7CAB1F92361A007CB73E /* BaseViewController.swift in Sources */,
 				633E2AE01F938C4600DAFBC5 /* UIColor+BaseColor.swift in Sources */,
+				63CF95C91FAECC3700CB4250 /* EditView.swift in Sources */,
 				636C75241FA768E5002FE52E /* DetailView.swift in Sources */,
 				63E691201FA8B05F0016A478 /* UIView+LayoutAnchor.swift in Sources */,
 				633E2AE21F939FF300DAFBC5 /* UIFont+BaseFont.swift in Sources */,
-				63F1075A1F9CC82F0029B9B2 /* UIButton+Convenience.swift in Sources */,
 				6320283A1F9B6FD6006F607F /* DogDay.swift in Sources */,
-				63E691221FA8B7950016A478 /* HHOTextField.swift in Sources */,
 				6379FF911FAA0E1400731081 /* DetailLabel.swift in Sources */,
 				632B271B1F9CA9E700D0DE7A /* EmptyMainView.swift in Sources */,
 				631E7CAC1F92361A007CB73E /* MainViewController.swift in Sources */,
@@ -251,9 +265,11 @@
 				633E2AE41F93A3DA00DAFBC5 /* UIView+SubView.swift in Sources */,
 				636C75221FA75ED7002FE52E /* GradientScrollView.swift in Sources */,
 				631E7CAE1F92361A007CB73E /* BaseView.swift in Sources */,
+				63CF95CC1FAECD3000CB4250 /* SettingViewController.swift in Sources */,
 				63B148F41FA2235300E48F99 /* DetailViewController.swift in Sources */,
 				6320EEC71F88B80B005EC9E9 /* AppDelegate.swift in Sources */,
 				6375CE411FA0CF95004BED12 /* HHOButton.swift in Sources */,
+				63CF95C51FAECAE200CB4250 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

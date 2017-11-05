@@ -18,19 +18,35 @@ class GradientScrollView: UIScrollView {
     var lastContentOffset: CGFloat = 0
     var forceScroll = false
     let gradientColors: [UIColor]
-    required init(frame: CGRect, gradientColors colors: [UIColor], delegate vc: UIScrollViewDelegate) {
+    required init(frame: CGRect, gradientColors colors: [UIColor]) {
         gradientColors = colors
         super.init(frame: frame)
-        self.delegate = vc
         self.backgroundColor = gradientColors[0]
         self.contentSize = CGSize(width: self.frame.width * CGFloat(gradientColors.count + 2), height: self.frame.height)
         self.scrollRectToVisible(CGRect(x: self.frame.width, y: 0, width: self.frame.width, height: self.frame.height), animated: false)
         self.isPagingEnabled = true
         self.bounces = false
+        self.showsVerticalScrollIndicator = false
+        self.showsHorizontalScrollIndicator = false
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func addContentsViews(images:[UIImage]) {
+        var temp = 0
+        for image in images {
+            let rect = CGRect(x: (self.frame.width - CGFloat(72))/2 + (self.frame.width * CGFloat(temp)),
+                              y: CGFloat(129),
+                              width: CGFloat(72),
+                              height: CGFloat(72))
+            let imageView = UIImageView(frame: rect)
+            imageView.image = image
+            imageView.contentMode = .scaleAspectFit
+            self.addSubview(imageView)
+            temp += 1
+        }
     }
     
     public func gradientBackground() {

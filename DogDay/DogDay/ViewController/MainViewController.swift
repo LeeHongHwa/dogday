@@ -11,9 +11,15 @@ import UIKit
 class MainViewController: BaseViewController {
     
     var dogDayDatas = DogDays.decode()
-    lazy var v = EmptyMainView(controlBy: self)
+    var v: UIView!
     
     override func loadView() {
+        
+        if dogDayDatas.isEmpty {
+            v = EmptyMainView(controlBy: self)
+        } else {
+            v = MainView(controlBy: self)
+        }
         self.view = v
     }
     
@@ -25,45 +31,15 @@ class MainViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-//    @objc func addDayButtonDidTap(_ sender:Any) {
-//        self.v.dateTextField.becomeFirstResponder()
-//    }
-//
-//    @objc func datePickerDidChange(_ sender:Any) {
-////        guard let sender = sender as? UIDatePicker else { return }
-////        let dateFormatter = DateFormatter()
-////        dateFormatter.dateFormat = "yyyy-MM-dd"
-////        self.v.dateTextField.text = dateFormatter.string(from: sender.date)
-////        self.v.dateTextField.resignFirstResponder()
-//    }
-//
-//    @objc func doneButtonDidTab(_ sender:Any) {
-//        let dateFormatter = DateFormatter()
-////        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        dateFormatter.dateFormat = "a hh:mm"
-//        self.v.dateTextField.text = dateFormatter.string(from: self.v.datePicker.date)
-//        self.v.dateTextField.resignFirstResponder()
-//    }
-//    @objc func cnacelButtonDidTab(_ sender:Any) {
-//        self.v.dateTextField.resignFirstResponder()
-//    }
     @objc func addDayButtonDidTab(_ sender:Any) {
-    
-        let detailViewController = DetailViewController()
-        self.navigationController?.pushViewController(detailViewController, animated: true)
+        let editViewController = EditViewController()
+        self.navigationController?.pushViewController(editViewController, animated: true)
     }
     
+    @objc func settingButtonDidTab(_ sender:Any) {
+        let settingViewController = SettingViewController(nibName: "SettingViewController", bundle: nil)
+        self.navigationController?.pushViewController(settingViewController, animated: true)
+    }
 }
 
 extension MainViewController: UITableViewDelegate {
