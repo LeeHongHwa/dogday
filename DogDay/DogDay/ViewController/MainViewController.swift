@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: BaseViewController {
     
-    var dogDayDatas = DogDays.decode()
+    var dogDayDatas = DogDays.sharedInstance
     var v: UIView!
     
     override func loadView() {

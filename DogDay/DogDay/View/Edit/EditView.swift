@@ -18,6 +18,7 @@ class EditView: BaseView<EditViewController> {
     private let popButton = UIButton(type: .custom)
     private let registerButton = UIButton(type: .custom)
     
+    var rightBarButtonItem: UIBarButtonItem!
     var scrollView: GradientScrollView!
     let previousButton = UIButton()
     let nextButton = UIButton()
@@ -35,8 +36,6 @@ class EditView: BaseView<EditViewController> {
         vc.navigationItem.title = "일정추가"
         popButton.setImage(#imageLiteral(resourceName: "add_back"), for: .normal)
         registerButton.setImage(#imageLiteral(resourceName: "add_check"), for: .normal)
-        registerButton.isEnabled = false
-        registerButton.alpha = 0.38
         
         let baseScrollView = UIScrollView()
         let contentsView = UIView()
@@ -209,7 +208,10 @@ class EditView: BaseView<EditViewController> {
         popButton.addTarget(vc, action: #selector(vc.popButtonDidTab(_:)), for: .touchUpInside)
         registerButton.addTarget(vc, action: #selector(vc.registerButtonDidTab(_:)), for: .touchUpInside)
         vc.navigationItem.setLeftBarButton(UIBarButtonItem(customView:popButton), animated: false)
-        vc.navigationItem.setRightBarButton(UIBarButtonItem(customView:registerButton), animated: false)
+        self.rightBarButtonItem = UIBarButtonItem(customView:registerButton)
+        self.rightBarButtonItem.isEnabled = false
+        self.rightBarButtonItem.customView?.alpha = 0.38
+        vc.navigationItem.setRightBarButton(self.rightBarButtonItem, animated: false)
         
         previousButton.addTarget(vc, action: #selector(vc.previousButtonDidTab(_:)), for: .touchUpInside)
         nextButton.addTarget(vc, action: #selector(vc.nextButtonDidTab(_:)), for: .touchUpInside)
@@ -219,6 +221,7 @@ class EditView: BaseView<EditViewController> {
         
         scrollView.delegate = vc
         titleTextField.delegate = vc
+        titleTextField.addTarget(vc, action: #selector(vc.titleTextFieldDidEditingChanged(_:)), for: .editingChanged)
     }
     
     private func addToolBar(to textField: UITextField, type: PickerType) {

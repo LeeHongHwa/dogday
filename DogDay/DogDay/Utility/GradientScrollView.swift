@@ -215,7 +215,16 @@ class GradientScrollView: UIScrollView {
     
     public func currentIndex() -> Int {
         let absoluteOffsetPercentage = self.contentOffset.x/self.frame.size.width
-        let currentIndex = Int(floor(absoluteOffsetPercentage))
+        var currentIndex = Int(floor(absoluteOffsetPercentage))
+        
+        if currentIndex == 0 {
+            currentIndex = self.gradientColors.count - 1
+        } else if currentIndex == self.gradientColors.count + 1 {
+            currentIndex = 0
+        } else {
+            currentIndex = currentIndex - 1
+        }
+       
        return currentIndex
     }
 }
