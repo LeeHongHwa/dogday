@@ -45,6 +45,6 @@ class BaseView<ViewController: ViewControllerType>: UIView, ViewType {
     // MARK: Deinit
     
     deinit {
-        // print("\(self) has deinitialized")
+         print("\(self) has deinitialized")
     }
 }

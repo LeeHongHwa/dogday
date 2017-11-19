@@ -12,17 +12,18 @@ enum ModelError: Error {
     case indexError(reason: String)
 }
 
-// MARK: DogDay
+enum DogDayType: Int, Codable {
+    case heartWorm, pill, heart, vaccination, beauty
+}
+
+// MARK: DogDay Element
 struct DogDay: Codable {
     
     enum CodingKeys: String, CodingKey {
         case dogDayType, title, endDate, endTime, widgetSetting, startTime
     }
     
-    enum DogDayType: Int, Codable {
-        case heartWorm, pill, heart, vaccination, beauty
-    }
-    
+    //store property
     public var dogDayType: DogDayType? = nil
     public var title: String? = nil
     public var endDate: Date? = nil
@@ -30,74 +31,98 @@ struct DogDay: Codable {
     public var widgetSetting: Bool = false
     public var startTime: Date? = nil
     
-    public var fullEndDate: Date? {
+    //computed property
+    //지정한 날짜 + 시간
+    fileprivate var fullEndDate: Date? {
         guard let endDate = endDate, let endTime = endTime else { return nil }
         let calendar = Calendar.current
         let dateComponents = calendar.dateComponents([.hour, .minute], from: endTime)
         return calendar.date(byAdding: dateComponents, to: endDate)
     }
     
-    public var remainDay: Int {
+    //오늘로 부터 남은 날짜
+    private var remainDay: Int {
         guard let fullEndDate = fullEndDate else { return 0 }
-        return Int(fullEndDate.timeIntervalSinceNow)
+        let secondsInAnHour = 60 * 60 * 24
+        return Int(fullEndDate.timeIntervalSinceNow) / secondsInAnHour
     }
     
+    //진행된 상태
     public var remainDayPercentage: Int {
         guard let fullEndDate = fullEndDate, let startTime = startTime else { return 0 }
+        if fullEndDate <= Date() {
+            return 100
+        }
+        
         let totalTimeInterval = fullEndDate.timeIntervalSince(startTime)
         let currentTimeInterval = Date().timeIntervalSince(startTime)
-        var percentage = Int((currentTimeInterval/totalTimeInterval) * 100)
-        if percentage >= 100 {
-            percentage = 100
-        }
+        let percentage = Int((currentTimeInterval/totalTimeInterval) * 100)
         return percentage
     }
     
-    public var nowDateSting: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd/a hh:mm"
-        return dateFormatter.string(from: Date())
+    //현재 날짜
+    public static var nowDateSting: String {
+        return DateFormatter.fullDateFormatter.string(from: Date())
     }
     
+    //지정한 날짜 + 시간
+    public var fullEndDateString: String {
+        guard let fullEndDate = fullEndDate else { return "" }
+        return DateFormatter.fullDateFormatter.string(from: fullEndDate)
+    }
+    
+    //지정한 날짜
     public var endDateString: String {
         guard let fullEndDate = fullEndDate else { return "" }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd/a hh:mm"
-        return dateFormatter.string(from: fullEndDate)
+        return DateFormatter.shortDateFormatter.string(from: fullEndDate)
     }
     
+    //지정한 시간
+    public var endTimeString: String {
+        guard let fullEndDate = fullEndDate else { return "" }
+        return DateFormatter.shortTimeFormatter.string(from: fullEndDate)
+    }
+    
+    //현재로 부터 남은 날짜(D~)
     public var shortRemainDayString: String {
-        return "D-\(remainDay)"
+        let remainDay = self.remainDay
+        if remainDay < 0 {
+            return "D+\(abs(remainDay))"
+        } else {
+            return "D-\(remainDay)"
+        }
     }
     
+    //현재로 부터 남은 날짜(자세한 설명)
     public var detailRemainDayString: String {
-        return "\(remainDay)일 남았어요"
+        let remainDay = self.remainDay
+        if remainDay < 0 {
+            return "+\(abs(remainDay))일 지났어요"
+        } else {
+            return "\(remainDay)일 남았어요"
+        }
     }
     
+    //등록할때 저장 할수 있는가에 대한 Bool값
     public var possibleToSave: Bool {
         guard title != nil, let fullEndDate = fullEndDate else { return false }
-        
         if fullEndDate < Date() {
             return false
         }
-        
         return true
     }
     
+    //문자열로 지정한 날짜 저장
     public mutating func setEndDate(with date:String) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        self.endDate = dateFormatter.date(from: date)
+        self.endDate = DateFormatter.shortDateFormatter.date(from: date)
     }
     
+    //문자열로 지정한 시간 저장
     public mutating func setEndTime(with time:String) {
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "a hh:mm"
-        
-        self.endTime = timeFormatter.date(from: time)
+        self.endTime = DateFormatter.shortTimeFormatter.date(from: time)
     }
     
+    //index를 통한 dog type 저장
     public mutating func setDogDayType(with index:Int) {
         switch index {
         case DogDayType.heartWorm.rawValue:
@@ -123,21 +148,22 @@ struct DogDay: Codable {
     }
 }
 
-// MARK: Repositories
+// MARK: DogDay List
 final class DogDays: Codable {
     
+    //singleton
     public static let sharedInstance = DogDays.decode()
     
     var items: [DogDay] = []
     
     var isEmpty: Bool {
-        if self.items.count > 0 {
+        if self.items.count <= 0 {
             return true
         }
         return false
     }
     
-    public func addDogDayData(_ element:DogDay) {
+    public func addDogDay(element: DogDay) {
         var tempElement = element
         tempElement.startTime = Date()
         self.items.append(tempElement)
@@ -150,18 +176,18 @@ final class DogDays: Codable {
         self.encoded()
     }
     
-    public func removeDogDayData(at index: Int) throws {
-        guard index >= self.items.count else { throw ModelError.indexError(reason: "index out of range") }
+    public func removeDogDayElement(at index: Int) {
+        guard index < self.items.count else { return }
         self.items.remove(at: index)
     }
     
-    public func insertDogDayData(moveAt currentIndex: Int, to destinationIndex: Int) {
+    public func insertDogDayElement(moveAt currentIndex: Int, to destinationIndex: Int) {
         let tempDogDay = self.items[currentIndex]
         self.items.remove(at: currentIndex)
         self.items.insert(tempDogDay, at: destinationIndex)
     }
     
-    public func editDogDayData(at index: Int, newElement:DogDay) {
+    public func editDogDayElement(at index: Int, newElement:DogDay) {
         self.items.remove(at: index)
         self.items.insert(newElement, at: index)
     }

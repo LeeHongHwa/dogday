@@ -11,8 +11,12 @@ import UIKit
 protocol ViewControllerType: class {
 }
 
-class BaseViewController: UIViewController, ViewControllerType {
+class BaseViewController: UIViewController, ViewControllerType, UIGestureRecognizerDelegate {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
     // MARK: Initialize
     init() {
         super.init(nibName: nil, bundle: nil)

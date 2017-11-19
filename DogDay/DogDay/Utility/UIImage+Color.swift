@@ -24,3 +24,22 @@ extension UIImage {
         return image
     }
 }
+
+extension UIImage {
+    static var heartWorm: UIImage {
+        return #imageLiteral(resourceName: "detail_heart")
+    }
+    static var pill: UIImage {
+        return #imageLiteral(resourceName: "detail_pill")
+    }
+    static var heart: UIImage {
+        return #imageLiteral(resourceName: "detail_Animal Hospital")
+    }
+    static var vaccination: UIImage {
+        return #imageLiteral(resourceName: "detail_Vaccination")
+    }
+    static var beauty: UIImage {
+        return #imageLiteral(resourceName: "detail_beauty")
+    }
+    
+}

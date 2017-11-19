@@ -30,6 +30,20 @@ class GradientScrollView: UIScrollView {
         self.showsHorizontalScrollIndicator = false
     }
     
+    public func move(toIndex index: Int) {
+        var index = index
+        if index == 0 {
+            index = 1
+        } else if index == self.gradientColors.count - 1 {
+            index = self.gradientColors.count
+        }
+        self.scrollRectToVisible(CGRect(x: self.frame.width * CGFloat(index),
+                                        y: 0,
+                                        width: self.frame.width,
+                                        height: self.frame.height),
+                                 animated: false)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

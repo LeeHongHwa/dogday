@@ -10,33 +10,27 @@ import UIKit
 
 class MainView: BaseView<MainViewController> {
 
-    private let tableView = UITableView(frame: UIScreen.main.bounds, style: .plain)
-    private let settingButton = UIButton(type: .custom)
-    private let addDayButton = UIButton(type: .custom)
+    public let tableView = UITableView(frame: UIScreen.main.bounds, style: .plain)
     
     override func setupUI() {
         //view controller
-        vc.navigationController?.setNavigationBarHidden(false, animated: false)
         vc.navigationItem.title = "DogDay"
-        settingButton.setImage(#imageLiteral(resourceName: "main_setting"), for: .normal)
-        addDayButton.setImage(#imageLiteral(resourceName: "main_plus"), for: .normal)
         
         //tableview
         tableView.register(DogDayTableViewCell.self, forCellReuseIdentifier: DogDayTableViewCell.identifier)
-        tableView.separatorColor = UIColor.clear
+        tableView.separatorStyle = .none
         
         addSubview(tableView)
     }
 
     override func setupBinding() {
         //bar button
-        settingButton.addTarget(vc, action: #selector(vc.settingButtonDidTab(_:)), for: .touchUpInside)
-        addDayButton.addTarget(vc, action: #selector(vc.addDayButtonDidTab(_:)), for: .touchUpInside)
-        vc.navigationItem.setRightBarButtonItems([UIBarButtonItem(customView:settingButton), UIBarButtonItem(customView:addDayButton)], animated: false)
-
+        vc.navigationItem.setBarButtonItem(buttonDatas: [(.setting, #selector(vc.settingButtonDidTab(_:))),
+                                                         (.add,  #selector(vc.addDayButtonDidTab(_:)))],
+                                           itemLocation: .right,
+                                           target: vc)
         //table view
         tableView.delegate = vc
         tableView.dataSource = vc
     }
 }
-

@@ -14,8 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        //CHECK: 변경하기
+        Thread.sleep(forTimeInterval: 0.5)
         setupKeyWindow()
-        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 
@@ -51,4 +52,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

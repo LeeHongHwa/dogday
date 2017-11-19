@@ -7,6 +7,21 @@
 //
 
 import UIKit
+extension UIColor {
+    func toImage(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContext(rect.size)
+        if let context = UIGraphicsGetCurrentContext() {
+            context.setFillColor(self.cgColor)
+            context.fill(rect)
+            if let image = UIGraphicsGetImageFromCurrentImageContext() {
+                UIGraphicsEndImageContext()
+                return image
+            }
+        }
+        return UIImage()
+    }
+}
 
 extension UIColor: HighlightedColor{
     
@@ -63,8 +78,32 @@ extension UIColor: HighlightedColor{
         return UIColor.init(red: 255, green: 255, blue: 255)
     }
     
+    static var subTextBlackColor: UIColor {
+        return UIColor(red: 0, green: 0, blue: 0, alpha: 0.45)
+    }
+    
     static var subTextWhiteColor: UIColor {
         return UIColor.init(red: 255, green: 255, blue: 255, alpha: 0.56)
+    }
+    
+    static var heartWorm: UIColor {
+        return UIColor(red: 248, green: 143, blue: 179)
+    }
+    
+    static var pill: UIColor {
+        return UIColor(red: 128, green: 203, blue: 196)
+    }
+    
+    static var heart: UIColor {
+        return UIColor(red: 255, green: 166, blue: 166)
+    }
+    
+    static var vaccination: UIColor {
+        return UIColor(red: 123, green: 197, blue: 216)
+    }
+    
+    static var beauty: UIColor {
+        return UIColor(red: 79, green: 195, blue: 247)
     }
 }
 

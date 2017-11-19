@@ -10,7 +10,12 @@ import UIKit
 
 class EditViewController: BaseViewController {
     lazy var v = EditView(controlBy: self)
-    var dogDayData = DogDay()
+    var dogDayData: DogDay!
+    var dogDayDataIndex: Int?
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func loadView() {
         self.view = v
@@ -19,7 +24,40 @@ class EditViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
+        self.setNeedsStatusBarAppearanceUpdate()
+        if let dogDayData = dogDayData {
+            v.configure(dogDayType: dogDayData.dogDayType!,
+                        title: dogDayData.title!,
+                        endDate: dogDayData.endDateString,
+                        endTime: dogDayData.endTimeString,
+                        widgetSetting: dogDayData.widgetSetting)
+        } else {
+            self.dogDayData = DogDay()
+        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.clearBackgroundColor()
+    }
+    
+    private func setEnableRightBarButtonItem() {
+        if dogDayData.possibleToSave == true {
+            v.rightBarButtonItem.isEnabled = true
+            v.rightBarButtonItem.customView?.alpha = 1
+        } else {
+            v.rightBarButtonItem.isEnabled = false
+            v.rightBarButtonItem.customView?.alpha = 0.38
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+}
+
+//Action
+extension EditViewController {
     
     @objc func popButtonDidTab(_ sender:Any) {
         self.navigationController?.popViewController(animated: true)
@@ -27,7 +65,17 @@ class EditViewController: BaseViewController {
     
     @objc func registerButtonDidTab(_ sender:Any) {
         dogDayData.setDogDayType(with: v.scrollView.currentIndex())
-        DogDays.sharedInstance.addDogDayData(dogDayData)
+        if let dogDayDataIndex = dogDayDataIndex {
+            DogDays.sharedInstance.editDogDayElement(at: dogDayDataIndex, newElement: dogDayData)
+        } else {
+            DogDays.sharedInstance.addDogDay(element: dogDayData)
+        }
+        
+        if self.presentingViewController == nil {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc func previousButtonDidTab(_ sender:Any) {
@@ -63,34 +111,18 @@ class EditViewController: BaseViewController {
         dogDayData.setEndTime(with: time)
         setEnableRightBarButtonItem()
     }
-
+    
     @objc func titleTextFieldDidEditingChanged(_ sender:Any) {
-        dump(sender)
         guard let titleTextField = sender as? UITextField  else { return }
         if titleTextField.text?.isWhiteSpacing() == false {
             dogDayData.title = titleTextField.text
             setEnableRightBarButtonItem()
         }
-        
     }
     
     @objc func cancelButtonDidTab(_ sender:Any) {
         v.dateTextField.endEditing(true)
         v.timeTextField.endEditing(true)
-    }
-    
-    private func setEnableRightBarButtonItem() {
-        if dogDayData.possibleToSave == true {
-            v.rightBarButtonItem.isEnabled = true
-            v.rightBarButtonItem.customView?.alpha = 1
-        } else {
-            v.rightBarButtonItem.isEnabled = false
-            v.rightBarButtonItem.customView?.alpha = 0.38
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
 
@@ -105,23 +137,5 @@ extension EditViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         return true
-    }
-}
-
-extension String {
-    func isWhiteSpacing() -> Bool {
-        if self.isEmpty {
-            return true
-        }
-        
-        var isWhiteSpacing = true
-        let titleArray = self.map { String($0) }
-        for character in titleArray {
-            if character != " " {
-                isWhiteSpacing = false
-                break
-            }
-        }
-        return isWhiteSpacing
     }
 }

@@ -22,6 +22,10 @@ extension UIFont {
         return UIFont.systemFont(ofSize: 24.0, weight: .medium)
     }
     
+    static var title1_regular: UIFont {
+        return UIFont.systemFont(ofSize: 24.0, weight: .regular)
+    }
+    
     static var title2: UIFont {
         return UIFont.systemFont(ofSize: 22.359375 * ratio)
     }

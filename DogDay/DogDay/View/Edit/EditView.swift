@@ -14,9 +14,13 @@ class EditView: BaseView<EditViewController> {
         case date
         case time
     }
-    
-    private let popButton = UIButton(type: .custom)
-    private let registerButton = UIButton(type: .custom)
+    private let baseScrollView = UIScrollView()
+    private let contentsView = UIView()
+    private let dateTitleLabel = UILabel()
+    private let timeTitleLabel = UILabel()
+    private let widgetLabel = UILabel()
+    private let widgetDescriptionTitleLabel = UILabel()
+    private let widgetDescriptionDetailLabel = UILabel()
     
     var rightBarButtonItem: UIBarButtonItem!
     var scrollView: GradientScrollView!
@@ -27,24 +31,15 @@ class EditView: BaseView<EditViewController> {
     let timeTextField = DogDayTextField()
     let widgetSwitch = UISwitch()
     
+    private struct UI {
+        static let baseMargin = CGFloat(26)
+        static let buttonSize = CGSize(width: 44, height: 44)
+    }
+    
     override func setupUI() {
         
-        vc.navigationController?.setNavigationBarHidden(false, animated: false)
-        vc.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        vc.navigationController?.clearBackgroundColor()
-        
         vc.navigationItem.title = "일정추가"
-        popButton.setImage(#imageLiteral(resourceName: "add_back"), for: .normal)
-        registerButton.setImage(#imageLiteral(resourceName: "add_check"), for: .normal)
-        
-        let baseScrollView = UIScrollView()
-        let contentsView = UIView()
-        let dateTitleLabel = UILabel()
-        let timeTitleLabel = UILabel()
-        let widgetLabel = UILabel()
-        let widgetDescriptionTitleLabel = UILabel()
-        let widgetDescriptionDetailLabel = UILabel()
-        
+        //CEHCK 색상
         scrollView = GradientScrollView(frame: CGRect(x: 0,
                                                       y: 0,
                                                       width: self.frame.width,
@@ -55,21 +50,6 @@ class EditView: BaseView<EditViewController> {
                                                          UIColor(red: 123, green: 197, blue: 216),
                                                          UIColor(red: 79, green: 195, blue: 247)])
         scrollView.addContentsViews(images: [#imageLiteral(resourceName: "detail_beauty"), #imageLiteral(resourceName: "detail_heart"), #imageLiteral(resourceName: "detail_pill"), #imageLiteral(resourceName: "detail_Animal Hospital"), #imageLiteral(resourceName: "detail_Vaccination"), #imageLiteral(resourceName: "detail_beauty"), #imageLiteral(resourceName: "detail_heart")])
-        
-        contentsView.addSubviews([scrollView,
-                                  previousButton,
-                                  nextButton,
-                                  titleTextField,
-                                  dateTitleLabel,
-                                  dateTextField,
-                                  timeTitleLabel,
-                                  timeTextField,
-                                  widgetLabel,
-                                  widgetSwitch,
-                                  widgetDescriptionTitleLabel,
-                                  widgetDescriptionDetailLabel])
-        baseScrollView.addSubview(contentsView)
-        self.addSubview(baseScrollView)
         
         baseScrollView.backgroundColor = UIColor.white
         
@@ -120,7 +100,24 @@ class EditView: BaseView<EditViewController> {
         widgetDescriptionDetailLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
         widgetDescriptionDetailLabel.numberOfLines = 0
         
-        // MARK: Constraints
+        contentsView.addSubviews([scrollView,
+                                  previousButton,
+                                  nextButton,
+                                  titleTextField,
+                                  dateTitleLabel,
+                                  dateTextField,
+                                  timeTitleLabel,
+                                  timeTextField,
+                                  widgetLabel,
+                                  widgetSwitch,
+                                  widgetDescriptionTitleLabel,
+                                  widgetDescriptionDetailLabel])
+        baseScrollView.addSubview(contentsView)
+        self.addSubview(baseScrollView)
+        setupConstraints()
+    }
+    
+    func setupConstraints() {
         baseScrollView
             .topAnchor(to: self.topAnchor)
             .leadingAnchor(to: self.leadingAnchor)
@@ -139,20 +136,20 @@ class EditView: BaseView<EditViewController> {
         
         previousButton
             .topAnchor(to: scrollView.topAnchor, constant: CGFloat(143))
-            .leadingAnchor(to: scrollView.leadingAnchor, constant: CGFloat(26))
-            .dimensionAnchors(width: CGFloat(44), height: CGFloat(44))
+            .leadingAnchor(to: scrollView.leadingAnchor, constant: UI.baseMargin)
+            .dimensionAnchors(size: UI.buttonSize)
             .activateAnchors()
         
         nextButton
             .topAnchor(to: previousButton.topAnchor)
-            .trailingAnchor(to: scrollView.trailingAnchor, constant: CGFloat(-26))
-            .dimensionAnchors(width: CGFloat(44), height: CGFloat(44))
+            .trailingAnchor(to: scrollView.trailingAnchor, constant: -UI.baseMargin)
+            .dimensionAnchors(size: UI.buttonSize)
             .activateAnchors()
         
         titleTextField
             .topAnchor(to: previousButton.bottomAnchor, constant: CGFloat(60))
-            .leadingAnchor(to: scrollView.leadingAnchor, constant: CGFloat(28))
-            .trailingAnchor(to: scrollView.trailingAnchor, constant: CGFloat(-28))
+            .leadingAnchor(to: scrollView.leadingAnchor, constant: UI.baseMargin)
+            .trailingAnchor(to: scrollView.trailingAnchor, constant: -UI.baseMargin)
             .heightAnchor(constant: CGFloat(42))
             .activateAnchors()
         
@@ -175,7 +172,7 @@ class EditView: BaseView<EditViewController> {
         
         timeTextField
             .topAnchor(to: dateTextField.topAnchor)
-            .trailingAnchor(to: scrollView.trailingAnchor, constant: CGFloat(-28))
+            .trailingAnchor(to: scrollView.trailingAnchor, constant: -UI.baseMargin)
             .widthAnchor(constant: CGFloat(120))
             .heightAnchor(constant: CGFloat(42))
             .activateAnchors()
@@ -186,7 +183,7 @@ class EditView: BaseView<EditViewController> {
             .activateAnchors()
         
         widgetSwitch
-            .trailingAnchor(to: scrollView.trailingAnchor, constant: CGFloat(-28))
+            .trailingAnchor(to: scrollView.trailingAnchor, constant: -UI.baseMargin)
             .centerYAnchor(to: widgetLabel.centerYAnchor)
             .activateAnchors()
         
@@ -199,19 +196,23 @@ class EditView: BaseView<EditViewController> {
             .topAnchor(to: widgetDescriptionTitleLabel.bottomAnchor, constant: CGFloat(6))
             .leadingAnchor(to: widgetDescriptionTitleLabel.leadingAnchor)
             .trailingAnchor(to: timeTextField.trailingAnchor)
-            .bottomAnchor(to: contentsView.bottomAnchor, constant: CGFloat(0))
+            .bottomAnchor(to: contentsView.bottomAnchor)
             .activateAnchors()
-        
     }
     
     override func setupBinding() {
-        popButton.addTarget(vc, action: #selector(vc.popButtonDidTab(_:)), for: .touchUpInside)
-        registerButton.addTarget(vc, action: #selector(vc.registerButtonDidTab(_:)), for: .touchUpInside)
-        vc.navigationItem.setLeftBarButton(UIBarButtonItem(customView:popButton), animated: false)
-        self.rightBarButtonItem = UIBarButtonItem(customView:registerButton)
-        self.rightBarButtonItem.isEnabled = false
-        self.rightBarButtonItem.customView?.alpha = 0.38
-        vc.navigationItem.setRightBarButton(self.rightBarButtonItem, animated: false)
+        vc.navigationItem.setBarButtonItem(buttonDatas: [(.backWhite, #selector(vc.popButtonDidTab(_:)))],
+                                           itemLocation: .left,
+                                           target: vc)
+        
+        vc.navigationItem.setBarButtonItem(buttonDatas: [(.register, #selector(vc.registerButtonDidTab(_:)))],
+                                           itemLocation: .right,
+                                           target: vc) { [weak self] barButtonItem in
+                                            guard let `self` = self else { return }
+                                            self.rightBarButtonItem = barButtonItem
+                                            self.rightBarButtonItem.isEnabled = false
+                                            self.rightBarButtonItem.customView?.alpha = 0.38
+        }
         
         previousButton.addTarget(vc, action: #selector(vc.previousButtonDidTab(_:)), for: .touchUpInside)
         nextButton.addTarget(vc, action: #selector(vc.nextButtonDidTab(_:)), for: .touchUpInside)
@@ -254,5 +255,17 @@ class EditView: BaseView<EditViewController> {
         
         textField.inputAccessoryView = toolBar
         textField.inputView = datePicker
+    }
+    
+    public func configure(dogDayType: DogDayType,
+                          title: String,
+                          endDate: String,
+                          endTime: String,
+                          widgetSetting: Bool) {
+        scrollView.move(toIndex: dogDayType.rawValue)
+        titleTextField.text = title
+        dateTextField.text = endDate
+        timeTextField.text = endTime
+        widgetSwitch.isOn = widgetSetting
     }
 }

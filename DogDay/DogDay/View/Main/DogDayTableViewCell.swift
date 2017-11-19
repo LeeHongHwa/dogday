@@ -12,7 +12,7 @@ class DogDayTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: DogDayTableViewCell.self)
     
-    private let deadlineDateLabel = UILabel()
+    private let endDateLabel = UILabel()
     private let remainingDaysLabel = UILabel()
     private let nameLabel = UILabel()
     private let iconImageView = UIImageView()
@@ -27,43 +27,88 @@ class DogDayTableViewCell: UITableViewCell {
         setupConstraints()
     }
     
-    // UI Metrics
     private struct UI {
-        static let baseMargin = CGFloat(16)
-        static let imageSize = CGSize(width: 15, height: 15)
-        static let countLabelSize = CGSize(width: 50, height: UI.imageSize.height)
+        static let baseMargin = CGFloat(26)
+        static let imageSize = CGSize(width: 48, height: 48)
     }
     
     private func setupUI() {
-        deadlineDateLabel.font = .preferredFont(forTextStyle: .caption1)
-        deadlineDateLabel.text = "2017.1.1"
-        nameLabel.font = .preferredFont(forTextStyle: .headline)
-        nameLabel.text = "약"
-        remainingDaysLabel.font = .preferredFont(forTextStyle: .caption1)
-        remainingDaysLabel.text = "D-75"
-        contentView.addSubviews([deadlineDateLabel, remainingDaysLabel, nameLabel, iconImageView])
+        iconImageView.contentMode = .scaleAspectFit
+        
+        endDateLabel.font = UIFont.main3_regular
+        endDateLabel.textColor = UIColor.subTextWhiteColor
+        endDateLabel.textAlignment = .left
+        
+        nameLabel.font = UIFont.main0_regular
+        nameLabel.textColor = UIColor.white
+        nameLabel.textAlignment = .left
+        
+        remainingDaysLabel.font = UIFont.title1_regular
+        remainingDaysLabel.textColor = UIColor.white
+        remainingDaysLabel.textAlignment = .right
+        
+        contentView.addSubviews([endDateLabel, remainingDaysLabel, nameLabel, iconImageView])
+        setupConstraints()
     }
     
     private func setupConstraints() {
-        deadlineDateLabel
-            .topAnchor(to: contentView.topAnchor, constant: UI.baseMargin)
+        iconImageView
+            .centerYAnchor(to: contentView.centerYAnchor)
             .leadingAnchor(to: contentView.leadingAnchor, constant: UI.baseMargin)
+            .dimensionAnchors(size: UI.imageSize)
             .activateAnchors()
         
-        remainingDaysLabel
-            .topAnchor(to: contentView.topAnchor, constant: UI.baseMargin)
-            .trailingAnchor(to: contentView.trailingAnchor, constant: UI.baseMargin)
+        endDateLabel
+            .topAnchor(to: iconImageView.topAnchor)
+            .leadingAnchor(to: iconImageView.trailingAnchor, constant: CGFloat(10))
+            .trailingAnchor(to: remainingDaysLabel.leadingAnchor, constant: UI.baseMargin)
             .activateAnchors()
         
         nameLabel
-            .topAnchor(to: deadlineDateLabel.bottomAnchor, constant: UI.baseMargin)
-            .leadingAnchor(to: deadlineDateLabel.leadingAnchor)
+            .topAnchor(to: endDateLabel.bottomAnchor, constant: CGFloat(4))
+            .leadingAnchor(to: endDateLabel.leadingAnchor)
+            .trailingAnchor(to: endDateLabel.trailingAnchor)
             .activateAnchors()
         
-        iconImageView
-            .topAnchor(to: deadlineDateLabel.bottomAnchor, constant: UI.baseMargin)
-            .trailingAnchor(to: remainingDaysLabel.trailingAnchor)
+        remainingDaysLabel
+            .centerYAnchor(to: contentView.centerYAnchor)
+            .trailingAnchor(to: contentView.trailingAnchor, constant: CGFloat(-26))
             .activateAnchors()
+    }
+    
+    func configureWith(name: String, endDate: String, remainingDay: String, dogDayType: DogDayType) {
+        nameLabel.text = name
+        endDateLabel.text = endDate
+        remainingDaysLabel.text = remainingDay
+        var backgroundColor: UIColor!
+        var iconImage: UIImage!
         
+        //CHECK: dogDayType 에서 처리하기
+        switch dogDayType {
+            
+        case .heartWorm:
+            backgroundColor = UIColor.heartWorm
+            iconImage = UIImage.heartWorm
+            break
+        case .pill:
+            backgroundColor = UIColor.pill
+            iconImage = UIImage.pill
+            break
+        case .heart:
+            backgroundColor = UIColor.heart
+            iconImage = UIImage.heart
+            break
+        case .vaccination:
+            backgroundColor = UIColor.vaccination
+            iconImage = UIImage.vaccination
+            break
+        case .beauty:
+            backgroundColor = UIColor.beauty
+            iconImage = UIImage.beauty
+            break
+        }
+        
+        self.backgroundColor = backgroundColor
+        self.iconImageView.image = iconImage
     }
 }
