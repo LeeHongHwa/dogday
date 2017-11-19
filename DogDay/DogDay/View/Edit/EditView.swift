@@ -207,9 +207,9 @@ class EditView: BaseView<EditViewController> {
         
         vc.navigationItem.setBarButtonItem(buttonDatas: [(.register, #selector(vc.registerButtonDidTab(_:)))],
                                            itemLocation: .right,
-                                           target: vc) { [weak self] barButtonItem in
+                                           target: vc) { [weak self] barButtonItems in
                                             guard let `self` = self else { return }
-                                            self.rightBarButtonItem = barButtonItem
+                                            self.rightBarButtonItem = barButtonItems[0]
                                             self.rightBarButtonItem.isEnabled = false
                                             self.rightBarButtonItem.customView?.alpha = 0.38
         }

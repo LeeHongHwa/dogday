@@ -32,7 +32,7 @@ extension UINavigationItem {
     func setBarButtonItem(buttonDatas datas:[ButtonData],
                           itemLocation location: BarButtonItemLocation,
                           target: AnyObject,
-                          completion: ((_ barButton: UIBarButtonItem) -> Void)? = nil) {
+                          completion: ((_ barButtons: [UIBarButtonItem]) -> Void)? = nil) {
         
         var barButtonItems: [UIBarButtonItem] = []
         for data in datas {
@@ -64,7 +64,7 @@ extension UINavigationItem {
             barButtonItems.append(barButtonItem)
             
             if let completion = completion {
-                completion(barButtonItem)
+                completion(barButtonItems)
             }
         }
         

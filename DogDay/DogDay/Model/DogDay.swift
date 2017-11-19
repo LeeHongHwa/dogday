@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum ModelError: Error {
     case indexError(reason: String)
@@ -14,6 +15,23 @@ enum ModelError: Error {
 
 enum DogDayType: Int, Codable {
     case heartWorm, pill, heart, vaccination, beauty
+    
+    typealias VisualData = (color: UIColor, image: UIImage)
+    
+    public func visualData() -> VisualData {
+        switch self {
+        case .heartWorm:
+            return (color: UIColor.heartWorm, image: UIImage.heartWorm)
+        case .pill:
+            return (color: UIColor.pill, image: UIImage.pill)
+        case .heart:
+            return (color: UIColor.heart, image: UIImage.heart)
+        case .vaccination:
+            return (color: UIColor.vaccination, image: UIImage.vaccination)
+        case .beauty:
+            return (color: UIColor.beauty, image: UIImage.beauty)
+        }
+    }
 }
 
 // MARK: DogDay Element

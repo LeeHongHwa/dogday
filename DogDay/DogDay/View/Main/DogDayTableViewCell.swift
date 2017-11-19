@@ -80,35 +80,9 @@ class DogDayTableViewCell: UITableViewCell {
         nameLabel.text = name
         endDateLabel.text = endDate
         remainingDaysLabel.text = remainingDay
-        var backgroundColor: UIColor!
-        var iconImage: UIImage!
-        
-        //CHECK: dogDayType 에서 처리하기
-        switch dogDayType {
-            
-        case .heartWorm:
-            backgroundColor = UIColor.heartWorm
-            iconImage = UIImage.heartWorm
-            break
-        case .pill:
-            backgroundColor = UIColor.pill
-            iconImage = UIImage.pill
-            break
-        case .heart:
-            backgroundColor = UIColor.heart
-            iconImage = UIImage.heart
-            break
-        case .vaccination:
-            backgroundColor = UIColor.vaccination
-            iconImage = UIImage.vaccination
-            break
-        case .beauty:
-            backgroundColor = UIColor.beauty
-            iconImage = UIImage.beauty
-            break
-        }
-        
-        self.backgroundColor = backgroundColor
-        self.iconImageView.image = iconImage
+
+        let visualData = dogDayType.visualData()
+        self.backgroundColor = visualData.color
+        self.iconImageView.image = visualData.image
     }
 }

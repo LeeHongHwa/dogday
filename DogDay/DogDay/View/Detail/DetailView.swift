@@ -185,37 +185,11 @@ class DetailView: BaseView<DetailViewController> {
         endDayLabel.descriptionLabel.text = endDate
         
         remainDayPercentageLabel.text =  "\(remainDayPercentage)%"
-        //CHECK: dog day로 변경
-        var backgroundColor: UIColor!
-        var iconImage: UIImage!
-        
-        switch dogDayType {
-            
-        case .heartWorm:
-            backgroundColor = UIColor.heartWorm
-            iconImage = UIImage.heartWorm
-            break
-        case .pill:
-            backgroundColor = UIColor.pill
-            iconImage = UIImage.pill
-            break
-        case .heart:
-            backgroundColor = UIColor.heart
-            iconImage = UIImage.heart
-            break
-        case .vaccination:
-            backgroundColor = UIColor.vaccination
-            iconImage = UIImage.vaccination
-            break
-        case .beauty:
-            backgroundColor = UIColor.beauty
-            iconImage = UIImage.beauty
-            break
-        }
-        
-        self.backgroundView.backgroundColor = backgroundColor
-        self.remainDayPercentageView.backgroundColor = backgroundColor
-        self.iconImageView.image = iconImage
+
+        let visualData = dogDayType.visualData()
+        self.backgroundView.backgroundColor = visualData.color
+        self.remainDayPercentageView.backgroundColor = visualData.color
+        self.iconImageView.image = visualData.image
         
         let remainDayPercentageViewWidth = (UIScreen.main.bounds.size.width - CGFloat((UI.baseMargin * 2))) * (CGFloat(remainDayPercentage) / 100.0)
         UIView.animate(withDuration: 1) {

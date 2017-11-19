@@ -174,8 +174,8 @@
 			children = (
 				6320EEC61F88B80B005EC9E9 /* AppDelegate.swift */,
 				632028381F9B6C3E006F607F /* Model */,
-				631E7CA81F9235D8007CB73E /* ViewController */,
 				631E7CA41F9235C5007CB73E /* View */,
+				631E7CA81F9235D8007CB73E /* ViewController */,
 				63158D8F1F923DEF0027CBEA /* Utility */,
 				6320EECD1F88B80C005EC9E9 /* Assets.xcassets */,
 				6320EECF1F88B80C005EC9E9 /* LaunchScreen.storyboard */,

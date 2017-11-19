@@ -90,9 +90,7 @@ extension EditViewController {
         guard let datePicker = v.dateTextField.inputView as? UIDatePicker else {
             return
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        let date = dateFormatter.string(from: datePicker.date)
+        let date = DateFormatter.shortDateFormatter.string(from: datePicker.date)
         v.dateTextField.text = date
         v.dateTextField.endEditing(true)
         dogDayData.setEndDate(with: date)
@@ -103,9 +101,7 @@ extension EditViewController {
         guard let datePicker = v.timeTextField.inputView as? UIDatePicker else {
             return
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "a hh:mm"
-        let time = dateFormatter.string(from: datePicker.date)
+        let time = DateFormatter.shortTimeFormatter.string(from: datePicker.date)
         v.timeTextField.text = time
         v.timeTextField.endEditing(true)
         dogDayData.setEndTime(with: time)
