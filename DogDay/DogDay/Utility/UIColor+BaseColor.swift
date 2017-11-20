@@ -59,7 +59,7 @@ extension UIColor: HighlightedColor{
     }
     
     static var emptyBackgroundColor: UIColor {
-        return UIColor.init(red: 121, green: 134, blue: 203)
+        return UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.2)
     }
     
     static var emptyAddButtonColor: UIColor {
