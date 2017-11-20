@@ -25,8 +25,8 @@ class MainView: BaseView<MainViewController> {
 
     override func setupBinding() {
         //bar button
-        vc.navigationItem.setBarButtonItem(buttonDatas: [(.setting, #selector(vc.settingButtonDidTab(_:))),
-                                                         (.add,  #selector(vc.addDayButtonDidTab(_:)))],
+        vc.navigationItem.setBarButtonItem(buttonDatas: [(.add,  #selector(vc.addDayButtonDidTab(_:))),
+                                                         (.setting, #selector(vc.settingButtonDidTab(_:)))],
                                            itemLocation: .right,
                                            target: vc)
         //table view

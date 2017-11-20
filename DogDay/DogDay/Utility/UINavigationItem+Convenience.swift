@@ -44,12 +44,15 @@ extension UINavigationItem {
                 barButton.setImage(#imageLiteral(resourceName: "add_back"), for: .normal)
             case .backBlack:
                 barButton.setImage(#imageLiteral(resourceName: "setting_back"), for: .normal)
+                barButton.setImage(#imageLiteral(resourceName: "setting_back_highlighted"), for: .highlighted)
             case .register:
                 barButton.setImage(#imageLiteral(resourceName: "add_check"), for: .normal)
             case .setting:
                 barButton.setImage(#imageLiteral(resourceName: "main_setting"), for: .normal)
+                barButton.setImage(#imageLiteral(resourceName: "main_setting_highlighted"), for: .highlighted)
             case .add:
                 barButton.setImage(#imageLiteral(resourceName: "main_plus"), for: .normal)
+                barButton.setImage(#imageLiteral(resourceName: "main_plus_highlighted"), for: .highlighted)
             }
             switch location {
             case .left:

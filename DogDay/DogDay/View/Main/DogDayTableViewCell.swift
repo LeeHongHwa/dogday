@@ -6,9 +6,9 @@
 //  Copyright © 2017년 lyhonghwa. All rights reserved.
 //
 
-import UIKit
+import SwipeCellKit
 
-class DogDayTableViewCell: UITableViewCell {
+class DogDayTableViewCell: SwipeTableViewCell {
     
     static let identifier = String(describing: DogDayTableViewCell.self)
     
