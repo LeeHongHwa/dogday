@@ -16,6 +16,7 @@ class DogDayTableViewCell: UITableViewCell {
     private let remainingDaysLabel = UILabel()
     private let nameLabel = UILabel()
     private let iconImageView = UIImageView()
+    private let highlightView = UIView()
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -33,6 +34,8 @@ class DogDayTableViewCell: UITableViewCell {
     }
     
     private func setupUI() {
+        self.selectionStyle = .none
+        
         iconImageView.contentMode = .scaleAspectFit
         
         endDateLabel.font = UIFont.main3_regular
@@ -47,7 +50,10 @@ class DogDayTableViewCell: UITableViewCell {
         remainingDaysLabel.textColor = UIColor.white
         remainingDaysLabel.textAlignment = .right
         
-        contentView.addSubviews([endDateLabel, remainingDaysLabel, nameLabel, iconImageView])
+        highlightView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+        highlightView.isHidden = true
+        
+        contentView.addSubviews([endDateLabel, remainingDaysLabel, nameLabel, iconImageView, highlightView])
         setupConstraints()
     }
     
@@ -61,8 +67,8 @@ class DogDayTableViewCell: UITableViewCell {
         endDateLabel
             .topAnchor(to: iconImageView.topAnchor)
             .leadingAnchor(to: iconImageView.trailingAnchor, constant: CGFloat(10))
-            .trailingAnchor(to: remainingDaysLabel.leadingAnchor, constant: UI.baseMargin)
             .activateAnchors()
+        endDateLabel.setContentHuggingPriority(.required, for: .horizontal)
         
         nameLabel
             .topAnchor(to: endDateLabel.bottomAnchor, constant: CGFloat(4))
@@ -74,6 +80,22 @@ class DogDayTableViewCell: UITableViewCell {
             .centerYAnchor(to: contentView.centerYAnchor)
             .trailingAnchor(to: contentView.trailingAnchor, constant: CGFloat(-26))
             .activateAnchors()
+        
+        highlightView
+            .topAnchor(to: contentView.topAnchor)
+            .bottomAnchor(to: contentView.bottomAnchor)
+            .trailingAnchor(to: contentView.trailingAnchor)
+            .leadingAnchor(to: contentView.leadingAnchor)
+            .activateAnchors()
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        if highlighted {
+            highlightView.isHidden = false
+        }
+        else {
+            highlightView.isHidden = true
+        }
     }
     
     func configureWith(name: String, endDate: String, remainingDay: String, dogDayType: DogDayType) {
