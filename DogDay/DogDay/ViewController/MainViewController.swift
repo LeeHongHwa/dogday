@@ -10,8 +10,13 @@ import SwipeCellKit
 
 class MainViewController: BaseViewController {
     
-    var dogDayDatas = DogDays.sharedInstance
-    //CHCK: view로 변경
+    var dogDayDatas = DogDays.sharedInstance {
+        didSet {
+            if oldValue.items.count <= dogDayDatas.items.count {
+                self.reloadTableView()
+            }
+        }
+    }
     let viewRatio = UIScreen.main.bounds.width/320.0
     lazy var v = MainView(controlBy: self)
     
@@ -30,8 +35,6 @@ class MainViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.showBackgroundColor()
-        //CHECK: reloadTableView 모델에 변경이 있을경우에만 reload
-        self.reloadTableView()
     }
     
     override func didReceiveMemoryWarning() {

@@ -10,7 +10,11 @@ import UIKit
 
 class EditViewController: BaseViewController {
     lazy var v = EditView(controlBy: self)
-    var dogDayData: DogDay!
+    var dogDayData: DogDay! {
+        didSet {
+            setEnableRightBarButtonItem()
+        }
+    }
     var dogDayDataIndex: Int?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -31,6 +35,8 @@ class EditViewController: BaseViewController {
                         endDate: dogDayData.endDateString,
                         endTime: dogDayData.endTimeString,
                         widgetSetting: dogDayData.widgetSetting)
+            v.rightBarButtonItem.isEnabled = true
+            v.rightBarButtonItem.customView?.alpha = 1
         } else {
             self.dogDayData = DogDay()
         }
@@ -86,6 +92,11 @@ extension EditViewController {
         v.scrollView.nextPaging()
     }
     
+    @objc func widgetSwitchDidTab(_ sender:Any) {
+        guard let sender = sender as? UISwitch else { return }
+        dogDayData.widgetSetting = sender.isOn
+    }
+    
     @objc func datePickerDoneButtonDidTab(_ sender:Any) {
         guard let datePicker = v.dateTextField.inputView as? UIDatePicker else {
             return
@@ -94,7 +105,6 @@ extension EditViewController {
         v.dateTextField.text = date
         v.dateTextField.endEditing(true)
         dogDayData.setEndDate(with: date)
-        setEnableRightBarButtonItem()
     }
     
     @objc func timePickerDoneButtonDidTab(_ sender:Any) {
@@ -105,14 +115,12 @@ extension EditViewController {
         v.timeTextField.text = time
         v.timeTextField.endEditing(true)
         dogDayData.setEndTime(with: time)
-        setEnableRightBarButtonItem()
     }
     
     @objc func titleTextFieldDidEditingChanged(_ sender:Any) {
         guard let titleTextField = sender as? UITextField  else { return }
         if titleTextField.text?.isWhiteSpacing() == false {
             dogDayData.title = titleTextField.text
-            setEnableRightBarButtonItem()
         }
     }
     
