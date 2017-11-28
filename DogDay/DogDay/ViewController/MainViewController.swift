@@ -9,14 +9,7 @@
 import SwipeCellKit
 
 class MainViewController: BaseViewController {
-    
-    var dogDayDatas = DogDays.sharedInstance {
-        didSet {
-            if oldValue.items.count <= dogDayDatas.items.count {
-                self.reloadTableView()
-            }
-        }
-    }
+    var dogDayDatas = DogDays.sharedInstance
     let viewRatio = UIScreen.main.bounds.width/320.0
     lazy var v = MainView(controlBy: self)
     
@@ -26,6 +19,9 @@ class MainViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView),
+                                               name: NSNotification.Name(DogDays.NotificationName.updateData.rawValue),
+                                               object: nil)
         if dogDayDatas.isEmpty {
             let navigationController = UINavigationController(rootViewController: EmptyViewController())
             self.present(navigationController, animated: false, completion: nil)
@@ -37,11 +33,15 @@ class MainViewController: BaseViewController {
         self.navigationController?.showBackgroundColor()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func reloadTableView() {
+    @objc private func reloadTableView() {
         self.v.tableView.reloadData()
     }
 }

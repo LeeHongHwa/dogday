@@ -192,6 +192,7 @@ final class DogDays: Codable {
             return true
         }
         self.encoded()
+        postUpdateDataNotification()
     }
     
     public func removeDogDayElement(at index: Int) {
@@ -208,6 +209,7 @@ final class DogDays: Codable {
     public func editDogDayElement(at index: Int, newElement:DogDay) {
         self.items.remove(at: index)
         self.items.insert(newElement, at: index)
+        postUpdateDataNotification()
     }
     
     func encoded() {
@@ -236,4 +238,15 @@ final class DogDays: Codable {
         return URL(fileURLWithPath: path)
     }
     
+}
+
+extension DogDays {
+    
+    enum NotificationName: String {
+        case updateData
+    }
+    
+    fileprivate func postUpdateDataNotification() -> Void {
+        NotificationCenter.default.post(name: NSNotification.Name(NotificationName.updateData.rawValue), object: nil)
+    }
 }
