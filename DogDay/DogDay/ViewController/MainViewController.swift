@@ -9,9 +9,7 @@
 import SwipeCellKit
 
 class MainViewController: BaseViewController {
-    
     var dogDayDatas = DogDays.sharedInstance
-    //CHCK: view로 변경
     let viewRatio = UIScreen.main.bounds.width/320.0
     lazy var v = MainView(controlBy: self)
     
@@ -21,6 +19,9 @@ class MainViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView),
+                                               name: NSNotification.Name(DogDays.NotificationName.updateData.rawValue),
+                                               object: nil)
         if dogDayDatas.isEmpty {
             let navigationController = UINavigationController(rootViewController: EmptyViewController())
             self.present(navigationController, animated: false, completion: nil)
@@ -30,15 +31,17 @@ class MainViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.showBackgroundColor()
-        //CHECK: reloadTableView 모델에 변경이 있을경우에만 reload
-        self.reloadTableView()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func reloadTableView() {
+    @objc private func reloadTableView() {
         self.v.tableView.reloadData()
     }
 }

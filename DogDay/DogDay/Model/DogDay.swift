@@ -145,22 +145,20 @@ struct DogDay: Codable {
         switch index {
         case DogDayType.heartWorm.rawValue:
             self.dogDayType = .heartWorm
-            break
+            
         case DogDayType.pill.rawValue:
             self.dogDayType = .pill
-            break
+            
         case DogDayType.heart.rawValue:
             self.dogDayType = .heart
-            break
+            
         case DogDayType.vaccination.rawValue:
             self.dogDayType = .vaccination
-            break
+            
         case DogDayType.beauty.rawValue:
             self.dogDayType = .beauty
-            break
             
         default:
-            
             break
         }
     }
@@ -185,13 +183,8 @@ final class DogDays: Codable {
         var tempElement = element
         tempElement.startTime = Date()
         self.items.append(tempElement)
-        self.items.sort { (first, second) -> Bool in
-            if let first = first.fullEndDate, let second = second.fullEndDate {
-                return first < second
-            }
-            return true
-        }
-        self.encoded()
+        self.sortItems()
+        postUpdateDataNotification()
     }
     
     public func removeDogDayElement(at index: Int) {
@@ -208,9 +201,20 @@ final class DogDays: Codable {
     public func editDogDayElement(at index: Int, newElement:DogDay) {
         self.items.remove(at: index)
         self.items.insert(newElement, at: index)
+        self.sortItems()
+        postUpdateDataNotification()
     }
     
-    func encoded() {
+    private func sortItems() {
+        self.items.sort { (first, second) -> Bool in
+            if let first = first.fullEndDate, let second = second.fullEndDate {
+                return first < second
+            }
+            return true
+        }
+    }
+    
+    public func encoded() {
         do {
             let dogDayData = try JSONEncoder().encode(self)
             try dogDayData.write(to: DogDays.encodingPath())
@@ -236,4 +240,15 @@ final class DogDays: Codable {
         return URL(fileURLWithPath: path)
     }
     
+}
+
+extension DogDays {
+    
+    enum NotificationName: String {
+        case updateData
+    }
+    
+    fileprivate func postUpdateDataNotification() -> Void {
+        NotificationCenter.default.post(name: NSNotification.Name(NotificationName.updateData.rawValue), object: nil)
+    }
 }

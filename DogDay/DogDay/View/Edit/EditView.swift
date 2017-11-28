@@ -216,6 +216,7 @@ class EditView: BaseView<EditViewController> {
         
         previousButton.addTarget(vc, action: #selector(vc.previousButtonDidTab(_:)), for: .touchUpInside)
         nextButton.addTarget(vc, action: #selector(vc.nextButtonDidTab(_:)), for: .touchUpInside)
+        widgetSwitch.addTarget(vc, action: #selector(vc.widgetSwitchDidTab(_:)), for: .valueChanged)
         
         addToolBar(to: dateTextField, type: .date)
         addToolBar(to: timeTextField, type: .time)
