@@ -22,9 +22,15 @@ class MainViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView),
                                                name: NSNotification.Name(DogDays.NotificationName.updateData.rawValue),
                                                object: nil)
+        //set launchScreen
+        let launchScreenViewController = LaunchScreenViewController()
         if dogDayDatas.isEmpty {
             let navigationController = UINavigationController(rootViewController: EmptyViewController())
-            self.present(navigationController, animated: false, completion: nil)
+            self.present(navigationController, animated: false, completion: {
+                navigationController.present(launchScreenViewController, animated: false, completion: nil)
+            })
+        } else {
+            self.present(launchScreenViewController, animated: false, completion:nil)
         }
     }
 

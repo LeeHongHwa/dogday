@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4F4B351D3202B36ABF6792D3 /* Pods_DogDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C7BBC6A21AEAA99F87BEE5 /* Pods_DogDay.framework */; };
+		63056A041FCEF5110092B54B /* LauchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63056A031FCEF5110092B54B /* LauchScreenViewController.swift */; };
+		63056A061FCEF9DF0092B54B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63056A051FCEF9DF0092B54B /* LaunchScreen.xib */; };
 		631E7CAB1F92361A007CB73E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E7CA91F9235D8007CB73E /* BaseViewController.swift */; };
 		631E7CAC1F92361A007CB73E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E7CAA1F9235D8007CB73E /* MainViewController.swift */; };
 		631E7CAD1F92361A007CB73E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E7CA61F9235C5007CB73E /* MainView.swift */; };
@@ -18,7 +20,6 @@
 		6320283A1F9B6FD6006F607F /* DogDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632028391F9B6FD6006F607F /* DogDay.swift */; };
 		6320EEC71F88B80B005EC9E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320EEC61F88B80B005EC9E9 /* AppDelegate.swift */; };
 		6320EECE1F88B80C005EC9E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6320EECD1F88B80C005EC9E9 /* Assets.xcassets */; };
-		6320EED11F88B80C005EC9E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6320EECF1F88B80C005EC9E9 /* LaunchScreen.storyboard */; };
 		632B271B1F9CA9E700D0DE7A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632B271A1F9CA9E700D0DE7A /* EmptyView.swift */; };
 		633E2ADE1F93824F00DAFBC5 /* DogDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2ADD1F93824F00DAFBC5 /* DogDayTableViewCell.swift */; };
 		633E2AE01F938C4600DAFBC5 /* UIColor+BaseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */; };
@@ -34,6 +35,7 @@
 		6375CE3F1FA0CA57004BED12 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375CE3E1FA0CA57004BED12 /* UIImage+Color.swift */; };
 		6375CE411FA0CF95004BED12 /* HHOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375CE401FA0CF95004BED12 /* HHOButton.swift */; };
 		6379FF911FAA0E1400731081 /* DetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379FF901FAA0E1400731081 /* DetailLabel.swift */; };
+		637D65371FD2E88C00955EDA /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D65361FD2E88C00955EDA /* LaunchScreenView.swift */; };
 		638600981FB496D300E31275 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638600971FB496D300E31275 /* EmptyViewController.swift */; };
 		63B148F41FA2235300E48F99 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B148F31FA2235300E48F99 /* DetailViewController.swift */; };
 		63CF95C51FAECAE200CB4250 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF95C41FAECAE200CB4250 /* EditViewController.swift */; };
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		2B3CA3227818221E2CA3563F /* Pods-DogDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogDay.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogDay/Pods-DogDay.release.xcconfig"; sourceTree = "<group>"; };
+		63056A031FCEF5110092B54B /* LauchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchScreenViewController.swift; sourceTree = "<group>"; };
+		63056A051FCEF9DF0092B54B /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		631E7CA61F9235C5007CB73E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		631E7CA71F9235C5007CB73E /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		631E7CA91F9235D8007CB73E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +59,6 @@
 		6320EEC31F88B80B005EC9E9 /* DogDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6320EEC61F88B80B005EC9E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6320EECD1F88B80C005EC9E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6320EED01F88B80C005EC9E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6320EED21F88B80C005EC9E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		632B271A1F9CA9E700D0DE7A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		633E2ADD1F93824F00DAFBC5 /* DogDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDayTableViewCell.swift; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		6375CE3E1FA0CA57004BED12 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		6375CE401FA0CF95004BED12 /* HHOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHOButton.swift; sourceTree = "<group>"; };
 		6379FF901FAA0E1400731081 /* DetailLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabel.swift; sourceTree = "<group>"; };
+		637D65361FD2E88C00955EDA /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		638600971FB496D300E31275 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		63B148F31FA2235300E48F99 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		63CF95C41FAECAE200CB4250 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				631E7CA71F9235C5007CB73E /* BaseView.swift */,
+				637D653A1FD2E8AF00955EDA /* LaunchScreen */,
 				631E7CA51F9235C5007CB73E /* Main */,
 				63B148F21FA2230700E48F99 /* Detail */,
 				63CF95C71FAECC0E00CB4250 /* Edit */,
@@ -145,6 +150,7 @@
 				63B148F31FA2235300E48F99 /* DetailViewController.swift */,
 				63CF95C41FAECAE200CB4250 /* EditViewController.swift */,
 				63CF95CA1FAECD3000CB4250 /* SettingViewController.swift */,
+				63056A031FCEF5110092B54B /* LauchScreenViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -185,7 +191,7 @@
 				631E7CA81F9235D8007CB73E /* ViewController */,
 				63158D8F1F923DEF0027CBEA /* Utility */,
 				6320EECD1F88B80C005EC9E9 /* Assets.xcassets */,
-				6320EECF1F88B80C005EC9E9 /* LaunchScreen.storyboard */,
+				63056A051FCEF9DF0092B54B /* LaunchScreen.xib */,
 				6320EED21F88B80C005EC9E9 /* Info.plist */,
 			);
 			path = DogDay;
@@ -198,6 +204,14 @@
 				635283151FBDCCB600766DA9 /* SettingTableViewCell.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		637D653A1FD2E8AF00955EDA /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				637D65361FD2E88C00955EDA /* LaunchScreenView.swift */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		63B148F21FA2230700E48F99 /* Detail */ = {
@@ -268,7 +282,7 @@
 				TargetAttributes = {
 					6320EEC21F88B80B005EC9E9 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -295,7 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6320EED11F88B80C005EC9E9 /* LaunchScreen.storyboard in Resources */,
+				63056A061FCEF9DF0092B54B /* LaunchScreen.xib in Resources */,
 				6320EECE1F88B80C005EC9E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,12 +386,14 @@
 				636C75241FA768E5002FE52E /* DetailView.swift in Sources */,
 				63E691201FA8B05F0016A478 /* UIView+LayoutAnchor.swift in Sources */,
 				633E2AE21F939FF300DAFBC5 /* UIFont+BaseFont.swift in Sources */,
+				637D65371FD2E88C00955EDA /* LaunchScreenView.swift in Sources */,
 				6320283A1F9B6FD6006F607F /* DogDay.swift in Sources */,
 				6379FF911FAA0E1400731081 /* DetailLabel.swift in Sources */,
 				631EEFC71FC134FF00EBFC52 /* DateFormatter+Convenience.swift in Sources */,
 				631E965C1FC15C5E002F2083 /* String+Empty.swift in Sources */,
 				635283161FBDCCB600766DA9 /* SettingTableViewCell.swift in Sources */,
 				632B271B1F9CA9E700D0DE7A /* EmptyView.swift in Sources */,
+				63056A041FCEF5110092B54B /* LauchScreenViewController.swift in Sources */,
 				631E7CAC1F92361A007CB73E /* MainViewController.swift in Sources */,
 				6375CE3F1FA0CA57004BED12 /* UIImage+Color.swift in Sources */,
 				631E7CAD1F92361A007CB73E /* MainView.swift in Sources */,
@@ -399,17 +415,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		6320EECF1F88B80C005EC9E9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6320EED01F88B80C005EC9E9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6320EED31F88B80C005EC9E9 /* Debug */ = {
@@ -524,8 +529,9 @@
 			baseConfigurationReference = 68BA828C84BDBFC0BEC38F15 /* Pods-DogDay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9798FKV9BN;
 				INFOPLIST_FILE = DogDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -542,8 +548,9 @@
 			baseConfigurationReference = 2B3CA3227818221E2CA3563F /* Pods-DogDay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9798FKV9BN;
 				INFOPLIST_FILE = DogDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

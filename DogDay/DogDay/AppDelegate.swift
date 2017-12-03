@@ -14,8 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //CHECK: 변경하기
-        Thread.sleep(forTimeInterval: 0.5)
         setupKeyWindow()
         return true
     }
@@ -26,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        LaunchScreenView.show()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

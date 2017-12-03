@@ -11,6 +11,15 @@ import UIKit
 // NSLayoutAnchor Helper
 
 extension UIView {
+    
+    func allDirectionsAnchor(to view: UIView) {
+        self.topAnchor(to: view.topAnchor)
+            .leadingAnchor(to: view.leadingAnchor)
+            .bottomAnchor(to: view.bottomAnchor)
+            .trailingAnchor(to: view.trailingAnchor)
+            .activateAnchors()
+    }
+    
     func topAnchor(to anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Self {
         topAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
         return self
