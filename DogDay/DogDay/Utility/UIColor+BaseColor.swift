@@ -78,6 +78,10 @@ extension UIColor: HighlightedColor{
         return UIColor.init(red: 255, green: 255, blue: 255)
     }
     
+    static var mainTextBlackColor: UIColor {
+        return UIColor(red: 0, green: 0, blue: 0, alpha: 0.87)
+    }
+    
     static var subTextBlackColor: UIColor {
         return UIColor(red: 0, green: 0, blue: 0, alpha: 0.45)
     }

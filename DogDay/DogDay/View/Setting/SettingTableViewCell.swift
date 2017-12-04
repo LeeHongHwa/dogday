@@ -18,11 +18,16 @@ class SettingTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
-        self.accessoryType = .disclosureIndicator
     }
     
-    func configureWith(title: String, description: String) {
+    func configureWith(title: String, description: String, detail: Bool) {
         self.textLabel?.text = title
         self.detailTextLabel?.text = description
+        self.isUserInteractionEnabled = detail
+        if detail {
+            self.accessoryType = .disclosureIndicator
+        } else {
+            self.accessoryType = .none
+        }
     }
 }

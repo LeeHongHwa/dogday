@@ -20,6 +20,8 @@
 		6320283A1F9B6FD6006F607F /* DogDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632028391F9B6FD6006F607F /* DogDay.swift */; };
 		6320EEC71F88B80B005EC9E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320EEC61F88B80B005EC9E9 /* AppDelegate.swift */; };
 		6320EECE1F88B80C005EC9E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6320EECD1F88B80C005EC9E9 /* Assets.xcassets */; };
+		632751A21FD3E21B00C25A4C /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632751A01FD3E21B00C25A4C /* LicenseViewController.swift */; };
+		632751A31FD3E21B00C25A4C /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 632751A11FD3E21B00C25A4C /* LicenseViewController.xib */; };
 		632B271B1F9CA9E700D0DE7A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632B271A1F9CA9E700D0DE7A /* EmptyView.swift */; };
 		633E2ADE1F93824F00DAFBC5 /* DogDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2ADD1F93824F00DAFBC5 /* DogDayTableViewCell.swift */; };
 		633E2AE01F938C4600DAFBC5 /* UIColor+BaseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */; };
@@ -60,6 +62,8 @@
 		6320EEC61F88B80B005EC9E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6320EECD1F88B80C005EC9E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6320EED21F88B80C005EC9E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		632751A01FD3E21B00C25A4C /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
+		632751A11FD3E21B00C25A4C /* LicenseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LicenseViewController.xib; sourceTree = "<group>"; };
 		632B271A1F9CA9E700D0DE7A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		633E2ADD1F93824F00DAFBC5 /* DogDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDayTableViewCell.swift; sourceTree = "<group>"; };
 		633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+BaseColor.swift"; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 				63B148F31FA2235300E48F99 /* DetailViewController.swift */,
 				63CF95C41FAECAE200CB4250 /* EditViewController.swift */,
 				63CF95CA1FAECD3000CB4250 /* SettingViewController.swift */,
+				632751A01FD3E21B00C25A4C /* LicenseViewController.swift */,
+				632751A11FD3E21B00C25A4C /* LicenseViewController.xib */,
 				63056A031FCEF5110092B54B /* LauchScreenViewController.swift */,
 			);
 			path = ViewController;
@@ -310,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63056A061FCEF9DF0092B54B /* LaunchScreen.xib in Resources */,
+				632751A31FD3E21B00C25A4C /* LicenseViewController.xib in Resources */,
 				6320EECE1F88B80C005EC9E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +411,7 @@
 				636C75221FA75ED7002FE52E /* GradientScrollView.swift in Sources */,
 				631E7CAE1F92361A007CB73E /* BaseView.swift in Sources */,
 				631EA0871FBC7E8D0043C7E7 /* UINavigationItem+Convenience.swift in Sources */,
+				632751A21FD3E21B00C25A4C /* LicenseViewController.swift in Sources */,
 				63CF95CC1FAECD3000CB4250 /* SettingViewController.swift in Sources */,
 				638600981FB496D300E31275 /* EmptyViewController.swift in Sources */,
 				63B148F41FA2235300E48F99 /* DetailViewController.swift in Sources */,

@@ -91,7 +91,7 @@ extension EditViewController {
     @objc func nextButtonDidTab(_ sender:Any) {
         v.scrollView.nextPaging()
     }
-    
+    //CHECK: alert 띄어야함 3개밖에 안된다고
     @objc func widgetSwitchDidTab(_ sender:Any) {
         guard let sender = sender as? UISwitch else { return }
         dogDayData.widgetSetting = sender.isOn
