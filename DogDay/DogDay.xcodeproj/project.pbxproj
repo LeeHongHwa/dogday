@@ -41,11 +41,39 @@
 		638600981FB496D300E31275 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638600971FB496D300E31275 /* EmptyViewController.swift */; };
 		63B148F41FA2235300E48F99 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B148F31FA2235300E48F99 /* DetailViewController.swift */; };
 		63B9C4171FD58E7F002CC775 /* LicenseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B9C4161FD58E7F002CC775 /* LicenseListViewController.swift */; };
+		63B9C41F1FD59482002CC775 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B9C41E1FD59482002CC775 /* NotificationCenter.framework */; };
+		63B9C4221FD59482002CC775 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B9C4211FD59482002CC775 /* TodayViewController.swift */; };
+		63B9C4251FD59482002CC775 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B9C4231FD59482002CC775 /* MainInterface.storyboard */; };
+		63B9C4291FD59482002CC775 /* DogDayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 63B9C41D1FD59482002CC775 /* DogDayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		63CF95C51FAECAE200CB4250 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF95C41FAECAE200CB4250 /* EditViewController.swift */; };
 		63CF95C91FAECC3700CB4250 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF95C81FAECC3700CB4250 /* EditView.swift */; };
 		63CF95CC1FAECD3000CB4250 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF95CA1FAECD3000CB4250 /* SettingViewController.swift */; };
 		63E691201FA8B05F0016A478 /* UIView+LayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E6911F1FA8B05F0016A478 /* UIView+LayoutAnchor.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		63B9C4271FD59482002CC775 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6320EEBB1F88B80B005EC9E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63B9C41C1FD59482002CC775;
+			remoteInfo = DogDayExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		63B9C42D1FD59482002CC775 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				63B9C4291FD59482002CC775 /* DogDayExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2B3CA3227818221E2CA3563F /* Pods-DogDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogDay.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogDay/Pods-DogDay.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +112,13 @@
 		638600971FB496D300E31275 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		63B148F31FA2235300E48F99 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		63B9C4161FD58E7F002CC775 /* LicenseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseListViewController.swift; sourceTree = "<group>"; };
+		63B9C4181FD59450002CC775 /* DogDay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogDay.entitlements; sourceTree = "<group>"; };
+		63B9C41D1FD59482002CC775 /* DogDayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DogDayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		63B9C41E1FD59482002CC775 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		63B9C4211FD59482002CC775 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		63B9C4241FD59482002CC775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		63B9C4261FD59482002CC775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63B9C42E1FD59491002CC775 /* DogDayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogDayExtension.entitlements; sourceTree = "<group>"; };
 		63CF95C41FAECAE200CB4250 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		63CF95C81FAECC3700CB4250 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		63CF95CA1FAECD3000CB4250 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +133,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F4B351D3202B36ABF6792D3 /* Pods_DogDay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B9C41A1FD59482002CC775 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B9C41F1FD59482002CC775 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				6320EEC51F88B80B005EC9E9 /* DogDay */,
+				63B9C4201FD59482002CC775 /* DogDayExtension */,
 				6320EEC41F88B80B005EC9E9 /* Products */,
 				F35EBCCA793DD48A0884F05D /* Pods */,
 				6886010439C6C023E315704E /* Frameworks */,
@@ -187,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				6320EEC31F88B80B005EC9E9 /* DogDay.app */,
+				63B9C41D1FD59482002CC775 /* DogDayExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,6 +239,7 @@
 		6320EEC51F88B80B005EC9E9 /* DogDay */ = {
 			isa = PBXGroup;
 			children = (
+				63B9C4181FD59450002CC775 /* DogDay.entitlements */,
 				6320EEC61F88B80B005EC9E9 /* AppDelegate.swift */,
 				632028381F9B6C3E006F607F /* Model */,
 				631E7CA41F9235C5007CB73E /* View */,
@@ -231,6 +277,17 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		63B9C4201FD59482002CC775 /* DogDayExtension */ = {
+			isa = PBXGroup;
+			children = (
+				63B9C42E1FD59491002CC775 /* DogDayExtension.entitlements */,
+				63B9C4211FD59482002CC775 /* TodayViewController.swift */,
+				63B9C4231FD59482002CC775 /* MainInterface.storyboard */,
+				63B9C4261FD59482002CC775 /* Info.plist */,
+			);
+			path = DogDayExtension;
+			sourceTree = "<group>";
+		};
 		63CF95C71FAECC0E00CB4250 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				B4C7BBC6A21AEAA99F87BEE5 /* Pods_DogDay.framework */,
+				63B9C41E1FD59482002CC775 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,15 +327,34 @@
 				6320EEC11F88B80B005EC9E9 /* Resources */,
 				632A6485A7D9D85F27D6EF06 /* [CP] Embed Pods Frameworks */,
 				5A2F6856D3C6F9D6A58E6045 /* [CP] Copy Pods Resources */,
+				63B9C42D1FD59482002CC775 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				63B9C4281FD59482002CC775 /* PBXTargetDependency */,
 			);
 			name = DogDay;
 			productName = DogDay;
 			productReference = 6320EEC31F88B80B005EC9E9 /* DogDay.app */;
 			productType = "com.apple.product-type.application";
+		};
+		63B9C41C1FD59482002CC775 /* DogDayExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63B9C42A1FD59482002CC775 /* Build configuration list for PBXNativeTarget "DogDayExtension" */;
+			buildPhases = (
+				63B9C4191FD59482002CC775 /* Sources */,
+				63B9C41A1FD59482002CC775 /* Frameworks */,
+				63B9C41B1FD59482002CC775 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DogDayExtension;
+			productName = DogDayExtension;
+			productReference = 63B9C41D1FD59482002CC775 /* DogDayExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -285,13 +362,27 @@
 		6320EEBB1F88B80B005EC9E9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = lyhonghwa;
 				TargetAttributes = {
 					6320EEC21F88B80B005EC9E9 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					63B9C41C1FD59482002CC775 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -309,6 +400,7 @@
 			projectRoot = "";
 			targets = (
 				6320EEC21F88B80B005EC9E9 /* DogDay */,
+				63B9C41C1FD59482002CC775 /* DogDayExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -321,6 +413,14 @@
 				63056A061FCEF9DF0092B54B /* LaunchScreen.xib in Resources */,
 				632751A31FD3E21B00C25A4C /* LicenseViewController.xib in Resources */,
 				6320EECE1F88B80C005EC9E9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B9C41B1FD59482002CC775 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B9C4251FD59482002CC775 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,7 +526,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		63B9C4191FD59482002CC775 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B9C4221FD59482002CC775 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		63B9C4281FD59482002CC775 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63B9C41C1FD59482002CC775 /* DogDayExtension */;
+			targetProxy = 63B9C4271FD59482002CC775 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		63B9C4231FD59482002CC775 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63B9C4241FD59482002CC775 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6320EED31F88B80C005EC9E9 /* Debug */ = {
@@ -540,7 +667,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 68BA828C84BDBFC0BEC38F15 /* Pods-DogDay.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DogDay/DogDay.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9798FKV9BN;
@@ -559,7 +688,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B3CA3227818221E2CA3563F /* Pods-DogDay.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DogDay/DogDay.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9798FKV9BN;
@@ -571,6 +702,40 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		63B9C42B1FD59482002CC775 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DogDayExtension/DogDayExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9798FKV9BN;
+				INFOPLIST_FILE = DogDayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.lyhonghwa.DogDay.DogDayExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		63B9C42C1FD59482002CC775 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DogDayExtension/DogDayExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9798FKV9BN;
+				INFOPLIST_FILE = DogDayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.lyhonghwa.DogDay.DogDayExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -591,6 +756,15 @@
 			buildConfigurations = (
 				6320EED61F88B80C005EC9E9 /* Debug */,
 				6320EED71F88B80C005EC9E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63B9C42A1FD59482002CC775 /* Build configuration list for PBXNativeTarget "DogDayExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63B9C42B1FD59482002CC775 /* Debug */,
+				63B9C42C1FD59482002CC775 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
