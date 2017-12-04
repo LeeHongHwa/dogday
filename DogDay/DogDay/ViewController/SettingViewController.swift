@@ -49,7 +49,7 @@ extension SettingViewController: UITableViewDelegate {
         if dogDaySetting.isContainDetailInfo {
             guard let urlString = dogDaySetting.url, let url = URL(string: urlString) else {
                 guard let licenseDatas = dogDaySetting.detail else { return }
-                self.navigationController?.pushViewController(LicenseViewController(with: licenseDatas[0]), animated: true)
+                self.navigationController?.pushViewController(LicenseListViewController(with: licenseDatas), animated: true)
                 return
             }
             self.present(SFSafariViewController(url: url), animated: true, completion: nil)

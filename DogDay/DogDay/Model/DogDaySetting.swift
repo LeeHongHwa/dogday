@@ -24,11 +24,17 @@ struct DogDaySetting {
 extension DogDaySetting {
     struct Licence {
         let title: String
-        let description: String
+        let description: String?
+        let url: String?
         
-        init(title: String, descriptionArray: [String]) {
+        init(title: String, descriptionArray: [String]?, url:String?) {
             self.title = title
-            self.description = descriptionArray.reduce("", {$0 + "\n" + $1})
+            if let descriptionArray = descriptionArray {
+                self.description = descriptionArray.reduce("", {$0 + "\n" + $1})
+            } else {
+                self.description = nil
+            }
+            self.url = url
         }
     }
 }
@@ -52,52 +58,35 @@ struct DogDaySettings {
                            DogDaySetting(title: "오픈소스 라이센스",
                                          description: nil,
                                          url: nil,
-                                         detail: [DogDaySetting.Licence(title: "Architecture", descriptionArray: [
-                                            "MIT License",
-                                            "",
-                                            "Copyright (c) 2017 Giftbot",
-                                            "",
-                                            "Permission is hereby granted, free of charge, to any person obtaining a copy",
-                                            "of this software and associated documentation files (the \"Software\"), to deal",
-                                            "in the Software without restriction, including without limitation the rights",
-                                            "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
-                                            "copies of the Software, and to permit persons to whom the Software is",
-                                            "furnished to do so, subject to the following conditions:",
-                                            "",
-                                            "The above copyright notice and this permission notice shall be included in all",
-                                            "copies or substantial portions of the Software.",
-                                            "",
-                                            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
-                                            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
-                                            "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
-                                            "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
-                                            "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
-                                            "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
-                                            "SOFTWARE."]),
+                                         detail: [DogDaySetting.Licence(title: "giftbott/iOS-Architecture-Sample",
+                                                                        descriptionArray: nil,
+                                                                        url: "https://github.com/giftbott/iOS-Architecture-Sample"),
                                                   
-                                                  DogDaySetting.Licence(title: "SwipeCellKit", descriptionArray: [
-                                                    "MIT License",
-                                                    "Copyright (c) 2017 Jeremy Koch",
-                                                    "",
-                                                    "http://jerkoch.com",
-                                                    "",
-                                                    "Permission is hereby granted, free of charge, to any person obtaining a copy",
-                                                    "of this software and associated documentation files (the \"Software\"), to deal",
-                                                    "in the Software without restriction, including without limitation the rights",
-                                                    "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
-                                                    "copies of the Software, and to permit persons to whom the Software is",
-                                                    "furnished to do so, subject to the following conditions:",
-                                                    "",
-                                                    "The above copyright notice and this permission notice shall be included in all",
-                                                    "copies or substantial portions of the Software.",
-                                                    "",
-                                                    "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
-                                                    "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
-                                                    "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
-                                                    "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
-                                                    "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
-                                                    "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
-                                                    "SOFTWARE"])
+                                                  DogDaySetting.Licence(title: "SwipeCellKit",
+                                                                        descriptionArray: [
+                                                                            "MIT License",
+                                                                            "Copyright (c) 2017 Jeremy Koch",
+                                                                            "",
+                                                                            "http://jerkoch.com",
+                                                                            "",
+                                                                            "Permission is hereby granted, free of charge, to any person obtaining a copy",
+                                                                            "of this software and associated documentation files (the \"Software\"), to deal",
+                                                                            "in the Software without restriction, including without limitation the rights",
+                                                                            "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+                                                                            "copies of the Software, and to permit persons to whom the Software is",
+                                                                            "furnished to do so, subject to the following conditions:",
+                                                                            "",
+                                                                            "The above copyright notice and this permission notice shall be included in all",
+                                                                            "copies or substantial portions of the Software.",
+                                                                            "",
+                                                                            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR",
+                                                                            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,",
+                                                                            "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE",
+                                                                            "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER",
+                                                                            "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+                                                                            "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE",
+                                                                            "SOFTWARE"],
+                                                                        url: "")
                             ])
-                           ]
+    ]
 }

@@ -14,8 +14,8 @@ class LicenseViewController: UIViewController {
     @IBOutlet weak var detailLabel: UILabel!
     
     
-    init(with licenseDatas: DogDaySetting.Licence) {
-        licenseData = licenseDatas
+    init(with licenseData: DogDaySetting.Licence) {
+        self.licenseData = licenseData
         super.init(nibName: "LicenseViewController", bundle: nil)
     }
     
