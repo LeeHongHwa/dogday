@@ -106,6 +106,8 @@ extension MainViewController: SwipeTableViewCellDelegate {
             editViewController.dogDayData = self.dogDayDatas.items[indexPath.row]
             editViewController.dogDayDataIndex = indexPath.row
             self.navigationController?.pushViewController(editViewController, animated: true)
+            guard let editCell = tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { return }
+            editCell.hideSwipe(animated: true)
         }
         
         moreRowAction.backgroundColor = UIColor(red: 89, green: 89, blue: 211)

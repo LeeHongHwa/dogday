@@ -41,6 +41,10 @@ struct DogDay: Codable {
         case dogDayType, title, endDate, endTime, widgetSetting, startTime
     }
     
+    enum SaveError {
+        case none, emptyValue, exceedValue
+    }
+    
     //store property
     public var dogDayType: DogDayType? = nil
     public var title: String? = nil
@@ -122,12 +126,17 @@ struct DogDay: Codable {
     }
     
     //등록할때 저장 할수 있는가에 대한 Bool값
-    public var possibleToSave: Bool {
-        guard title != nil, let fullEndDate = fullEndDate else { return false }
+    public var possibleToSave: SaveError {
+        guard title != nil, let fullEndDate = fullEndDate else { return .emptyValue }
         if fullEndDate < Date() {
-            return false
+            return .emptyValue
         }
-        return true
+        
+        if !DogDays.sharedInstance.possibleToSaveWidget() && self.widgetSetting == true {
+            return .exceedValue
+        }
+        
+        return .none
     }
     
     //문자열로 지정한 날짜 저장
@@ -180,6 +189,9 @@ final class DogDays: Codable {
     }
     
     public func addDogDay(element: DogDay) {
+        /*
+         위젯설정이 있으면 디폴트에 저장후 정렬
+         */
         var tempElement = element
         tempElement.startTime = Date()
         self.items.append(tempElement)
@@ -189,6 +201,9 @@ final class DogDays: Codable {
     
     public func removeDogDayElement(at index: Int) {
         guard index < self.items.count else { return }
+        /*
+         위젯설정이 있으면 디폴트에 검색후 해당 데이터 삭제
+         */
         self.items.remove(at: index)
     }
     
@@ -199,6 +214,11 @@ final class DogDays: Codable {
     }
     
     public func editDogDayElement(at index: Int, newElement:DogDay) {
+        /*
+         등록일 비교후 변동 적용(정렬)
+         위젯이 있을경우 갱신
+         없을경우 추가
+        */
         self.items.remove(at: index)
         self.items.insert(newElement, at: index)
         self.sortItems()
@@ -212,6 +232,14 @@ final class DogDays: Codable {
             }
             return true
         }
+    }
+    
+    public func possibleToSaveWidget() -> Bool {
+        let widgetSetDataCount = self.items.filter { (dogDay) -> Bool in
+            return dogDay.widgetSetting
+            }.count
+        guard widgetSetDataCount < 3 else { return false }
+        return true
     }
     
     public func encoded() {

@@ -48,12 +48,22 @@ class EditViewController: BaseViewController {
     }
     
     private func setEnableRightBarButtonItem() {
-        if dogDayData.possibleToSave == true {
+        switch dogDayData.possibleToSave {
+        case .none://저장 가능
             v.rightBarButtonItem.isEnabled = true
             v.rightBarButtonItem.customView?.alpha = 1
-        } else {
+        case .emptyValue://빈 값
             v.rightBarButtonItem.isEnabled = false
             v.rightBarButtonItem.customView?.alpha = 0.38
+        case .exceedValue://위젯 초과
+            let alert = UIAlertController(title: "위젯설정", message: "위젯설정은 3개까지 등록이 가능합니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인",
+                                          style: .cancel, handler: {[weak self] _ in
+                                            guard let `self` = self else { return }
+                                            self.v.widgetSwitch.isOn = false
+                                            alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
