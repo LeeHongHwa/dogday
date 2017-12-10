@@ -60,7 +60,8 @@ class EditViewController: BaseViewController {
             alert.addAction(UIAlertAction(title: "확인",
                                           style: .cancel, handler: {[weak self] _ in
                                             guard let `self` = self else { return }
-                                            self.v.widgetSwitch.isOn = false
+                                            self.v.widgetSwitch.setOn(false, animated: true)
+                                            self.dogDayData.widgetSetting = false
                                             alert.dismiss(animated: true, completion: nil)
             }))
             self.present(alert, animated: true, completion: nil)
@@ -82,9 +83,9 @@ extension EditViewController {
     @objc func registerButtonDidTab(_ sender:Any) {
         dogDayData.setDogDayType(with: v.scrollView.currentIndex())
         if let dogDayDataIndex = dogDayDataIndex {
-            DogDays.sharedInstance.editDogDayElement(at: dogDayDataIndex, newElement: dogDayData)
+            DogDays.sharedInstance.editDogDayElement(at: dogDayDataIndex, newElement: dogDayData, isWidget: true)
         } else {
-            DogDays.sharedInstance.addDogDay(element: dogDayData)
+            DogDays.sharedInstance.addDogDay(element: dogDayData, isWidget: true)
         }
         
         if self.presentingViewController == nil {
@@ -101,7 +102,7 @@ extension EditViewController {
     @objc func nextButtonDidTab(_ sender:Any) {
         v.scrollView.nextPaging()
     }
-    //CHECK: alert 띄어야함 3개밖에 안된다고
+    
     @objc func widgetSwitchDidTab(_ sender:Any) {
         guard let sender = sender as? UISwitch else { return }
         dogDayData.widgetSetting = sender.isOn

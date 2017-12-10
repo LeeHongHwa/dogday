@@ -115,7 +115,7 @@ extension MainViewController: SwipeTableViewCellDelegate {
     
         let deleteAction = SwipeAction(style: .destructive, title: "삭제") {[weak self] action, indexPath in
             guard let `self` = self else { return }
-            self.dogDayDatas.removeDogDayElement(at: indexPath.row)
+            self.dogDayDatas.removeDogDayElement(at: indexPath.row, isWidget: true)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             if self.dogDayDatas.isEmpty {
                 let navigationController = UINavigationController(rootViewController: EmptyViewController())

@@ -18,8 +18,8 @@
 		631EA0871FBC7E8D0043C7E7 /* UINavigationItem+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631EA0861FBC7E8D0043C7E7 /* UINavigationItem+Convenience.swift */; };
 		631EEFC71FC134FF00EBFC52 /* DateFormatter+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631EEFC61FC134FF00EBFC52 /* DateFormatter+Convenience.swift */; };
 		6320283A1F9B6FD6006F607F /* DogDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632028391F9B6FD6006F607F /* DogDay.swift */; };
+		6320C7AC1FDDF965005FF180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6320EECD1F88B80C005EC9E9 /* Assets.xcassets */; };
 		6320EEC71F88B80B005EC9E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320EEC61F88B80B005EC9E9 /* AppDelegate.swift */; };
-		6320EECE1F88B80C005EC9E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6320EECD1F88B80C005EC9E9 /* Assets.xcassets */; };
 		632751A21FD3E21B00C25A4C /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632751A01FD3E21B00C25A4C /* LicenseViewController.swift */; };
 		632751A31FD3E21B00C25A4C /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 632751A11FD3E21B00C25A4C /* LicenseViewController.xib */; };
 		632B271B1F9CA9E700D0DE7A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632B271A1F9CA9E700D0DE7A /* EmptyView.swift */; };
@@ -32,6 +32,7 @@
 		6352831A1FBDD6E300766DA9 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635283191FBDD6E300766DA9 /* SettingView.swift */; };
 		63585AE01FAF378B0035FD35 /* DogDayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63585ADF1FAF378B0035FD35 /* DogDayTextField.swift */; };
 		63585AE21FAF450B0035FD35 /* UINavigationController+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63585AE11FAF450B0035FD35 /* UINavigationController+Color.swift */; };
+		635FC8131FD8252C007987B4 /* WidgetDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635FC8121FD8252C007987B4 /* WidgetDatas.swift */; };
 		636C75221FA75ED7002FE52E /* GradientScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C75211FA75ED7002FE52E /* GradientScrollView.swift */; };
 		636C75241FA768E5002FE52E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C75231FA768E5002FE52E /* DetailView.swift */; };
 		6375CE3F1FA0CA57004BED12 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375CE3E1FA0CA57004BED12 /* UIImage+Color.swift */; };
@@ -39,6 +40,20 @@
 		6379FF911FAA0E1400731081 /* DetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379FF901FAA0E1400731081 /* DetailLabel.swift */; };
 		637D65371FD2E88C00955EDA /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D65361FD2E88C00955EDA /* LaunchScreenView.swift */; };
 		638600981FB496D300E31275 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638600971FB496D300E31275 /* EmptyViewController.swift */; };
+		6387548C1FDD287700DFEAD5 /* DogDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632028391F9B6FD6006F607F /* DogDay.swift */; };
+		6387548E1FDD287C00DFEAD5 /* WidgetDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635FC8121FD8252C007987B4 /* WidgetDatas.swift */; };
+		6387548F1FDD290000DFEAD5 /* UIColor+BaseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */; };
+		638754901FDD290000DFEAD5 /* String+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E965B1FC15C5E002F2083 /* String+Empty.swift */; };
+		638754911FDD290000DFEAD5 /* UIFont+BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2AE11F939FF300DAFBC5 /* UIFont+BaseFont.swift */; };
+		638754921FDD290000DFEAD5 /* UIView+SubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2AE31F93A3DA00DAFBC5 /* UIView+SubView.swift */; };
+		638754931FDD290000DFEAD5 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375CE3E1FA0CA57004BED12 /* UIImage+Color.swift */; };
+		638754941FDD290000DFEAD5 /* UIView+LayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E6911F1FA8B05F0016A478 /* UIView+LayoutAnchor.swift */; };
+		638754961FDD290000DFEAD5 /* HHOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375CE401FA0CF95004BED12 /* HHOButton.swift */; };
+		638754971FDD290000DFEAD5 /* DogDayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63585ADF1FAF378B0035FD35 /* DogDayTextField.swift */; };
+		638754981FDD290000DFEAD5 /* DetailLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379FF901FAA0E1400731081 /* DetailLabel.swift */; };
+		6387549B1FDD290000DFEAD5 /* DateFormatter+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631EEFC61FC134FF00EBFC52 /* DateFormatter+Convenience.swift */; };
+		638754A01FDD302500DFEAD5 /* ExtensionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6387549E1FDD302500DFEAD5 /* ExtensionTableViewCell.swift */; };
+		638754A21FDD354A00DFEAD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6320EECD1F88B80C005EC9E9 /* Assets.xcassets */; };
 		63B148F41FA2235300E48F99 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B148F31FA2235300E48F99 /* DetailViewController.swift */; };
 		63B9C4171FD58E7F002CC775 /* LicenseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B9C4161FD58E7F002CC775 /* LicenseListViewController.swift */; };
 		63B9C41F1FD59482002CC775 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B9C41E1FD59482002CC775 /* NotificationCenter.framework */; };
@@ -103,6 +118,7 @@
 		635283191FBDD6E300766DA9 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		63585ADF1FAF378B0035FD35 /* DogDayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDayTextField.swift; sourceTree = "<group>"; };
 		63585AE11FAF450B0035FD35 /* UINavigationController+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Color.swift"; sourceTree = "<group>"; };
+		635FC8121FD8252C007987B4 /* WidgetDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDatas.swift; sourceTree = "<group>"; };
 		636C75211FA75ED7002FE52E /* GradientScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientScrollView.swift; sourceTree = "<group>"; };
 		636C75231FA768E5002FE52E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		6375CE3E1FA0CA57004BED12 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
@@ -110,6 +126,7 @@
 		6379FF901FAA0E1400731081 /* DetailLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabel.swift; sourceTree = "<group>"; };
 		637D65361FD2E88C00955EDA /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		638600971FB496D300E31275 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
+		6387549E1FDD302500DFEAD5 /* ExtensionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTableViewCell.swift; sourceTree = "<group>"; };
 		63B148F31FA2235300E48F99 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		63B9C4161FD58E7F002CC775 /* LicenseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseListViewController.swift; sourceTree = "<group>"; };
 		63B9C4181FD59450002CC775 /* DogDay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogDay.entitlements; sourceTree = "<group>"; };
@@ -212,6 +229,7 @@
 			children = (
 				632028391F9B6FD6006F607F /* DogDay.swift */,
 				635283171FBDCDAF00766DA9 /* DogDaySetting.swift */,
+				635FC8121FD8252C007987B4 /* WidgetDatas.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +300,7 @@
 			children = (
 				63B9C42E1FD59491002CC775 /* DogDayExtension.entitlements */,
 				63B9C4211FD59482002CC775 /* TodayViewController.swift */,
+				6387549E1FDD302500DFEAD5 /* ExtensionTableViewCell.swift */,
 				63B9C4231FD59482002CC775 /* MainInterface.storyboard */,
 				63B9C4261FD59482002CC775 /* Info.plist */,
 			);
@@ -411,8 +430,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				63056A061FCEF9DF0092B54B /* LaunchScreen.xib in Resources */,
+				6320C7AC1FDDF965005FF180 /* Assets.xcassets in Resources */,
 				632751A31FD3E21B00C25A4C /* LicenseViewController.xib in Resources */,
-				6320EECE1F88B80C005EC9E9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +439,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638754A21FDD354A00DFEAD5 /* Assets.xcassets in Resources */,
 				63B9C4251FD59482002CC775 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +535,7 @@
 				636C75221FA75ED7002FE52E /* GradientScrollView.swift in Sources */,
 				631E7CAE1F92361A007CB73E /* BaseView.swift in Sources */,
 				631EA0871FBC7E8D0043C7E7 /* UINavigationItem+Convenience.swift in Sources */,
+				635FC8131FD8252C007987B4 /* WidgetDatas.swift in Sources */,
 				632751A21FD3E21B00C25A4C /* LicenseViewController.swift in Sources */,
 				63CF95CC1FAECD3000CB4250 /* SettingViewController.swift in Sources */,
 				638600981FB496D300E31275 /* EmptyViewController.swift in Sources */,
@@ -530,7 +551,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638754911FDD290000DFEAD5 /* UIFont+BaseFont.swift in Sources */,
+				638754931FDD290000DFEAD5 /* UIImage+Color.swift in Sources */,
+				638754901FDD290000DFEAD5 /* String+Empty.swift in Sources */,
+				6387549B1FDD290000DFEAD5 /* DateFormatter+Convenience.swift in Sources */,
+				638754941FDD290000DFEAD5 /* UIView+LayoutAnchor.swift in Sources */,
+				6387548F1FDD290000DFEAD5 /* UIColor+BaseColor.swift in Sources */,
 				63B9C4221FD59482002CC775 /* TodayViewController.swift in Sources */,
+				638754A01FDD302500DFEAD5 /* ExtensionTableViewCell.swift in Sources */,
+				6387548E1FDD287C00DFEAD5 /* WidgetDatas.swift in Sources */,
+				638754921FDD290000DFEAD5 /* UIView+SubView.swift in Sources */,
+				638754971FDD290000DFEAD5 /* DogDayTextField.swift in Sources */,
+				6387548C1FDD287700DFEAD5 /* DogDay.swift in Sources */,
+				638754981FDD290000DFEAD5 /* DetailLabel.swift in Sources */,
+				638754961FDD290000DFEAD5 /* HHOButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,11 +32,7 @@ class GradientScrollView: UIScrollView {
     
     public func move(toIndex index: Int) {
         var index = index
-        if index == 0 {
-            index = 1
-        } else if index == self.gradientColors.count - 1 {
-            index = self.gradientColors.count
-        }
+        index += 1
         self.scrollRectToVisible(CGRect(x: self.frame.width * CGFloat(index),
                                         y: 0,
                                         width: self.frame.width,
