@@ -35,7 +35,11 @@ enum DogDayType: Int, Codable {
 }
 
 // MARK: DogDay Element
-struct DogDay: Codable {
+struct DogDay: Codable, Equatable {
+    
+    static func ==(lhs: DogDay, rhs: DogDay) -> Bool {
+        return lhs.startTime == rhs.startTime
+    }
     
     enum CodingKeys: String, CodingKey {
         case dogDayType, title, endDate, endTime, widgetSetting, startTime
@@ -188,23 +192,23 @@ final class DogDays: Codable {
         return false
     }
     
-    public func addDogDay(element: DogDay) {
-        /*
-         위젯설정이 있으면 디폴트에 저장후 정렬
-         */
+    public func addDogDay(element: DogDay, isWidget: Bool = false) {
         var tempElement = element
         tempElement.startTime = Date()
+        if isWidget {
+            WidgetDatas.sharedInstance.add(tempElement)
+        }
         self.items.append(tempElement)
         self.sortItems()
         postUpdateDataNotification()
     }
     
-    public func removeDogDayElement(at index: Int) {
+    public func removeDogDayElement(at index: Int, isWidget: Bool = false) {
         guard index < self.items.count else { return }
-        /*
-         위젯설정이 있으면 디폴트에 검색후 해당 데이터 삭제
-         */
-        self.items.remove(at: index)
+        let removedData = self.items.remove(at: index)
+        if isWidget {
+            WidgetDatas.sharedInstance.remove(removedData)
+        }
     }
     
     public func insertDogDayElement(moveAt currentIndex: Int, to destinationIndex: Int) {
@@ -213,13 +217,12 @@ final class DogDays: Codable {
         self.items.insert(tempDogDay, at: destinationIndex)
     }
     
-    public func editDogDayElement(at index: Int, newElement:DogDay) {
-        /*
-         등록일 비교후 변동 적용(정렬)
-         위젯이 있을경우 갱신
-         없을경우 추가
-        */
-        self.items.remove(at: index)
+    public func editDogDayElement(at index: Int, newElement:DogDay, isWidget: Bool = false) {
+        let oldData = self.items.remove(at: index)
+        if isWidget {
+            WidgetDatas.sharedInstance.edit(oldData: oldData,
+                                            newData: newElement)
+        }
         self.items.insert(newElement, at: index)
         self.sortItems()
         postUpdateDataNotification()
@@ -251,10 +254,29 @@ final class DogDays: Codable {
         }
     }
     
+    public func encodedData() -> Data? {
+        do {
+            return try JSONEncoder().encode(self)
+        } catch let error {
+            print("Encoding data has failed with error: ", error.localizedDescription)
+        }
+        return nil
+    }
+    
     static func decode() -> DogDays {
         do {
             let decodingData = try Data(contentsOf: DogDays.encodingPath())
             let dogDayDatas = try JSONDecoder().decode(DogDays.self, from: decodingData)
+            return dogDayDatas
+        } catch let error {
+            print("Decoding data has failed with error: ", error.localizedDescription)
+            return DogDays()
+        }
+    }
+    
+    static func decode(with data: Data) -> DogDays {
+        do {
+            let dogDayDatas = try JSONDecoder().decode(DogDays.self, from: data)
             return dogDayDatas
         } catch let error {
             print("Decoding data has failed with error: ", error.localizedDescription)
