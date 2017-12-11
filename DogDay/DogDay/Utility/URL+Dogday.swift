@@ -13,7 +13,7 @@ extension URL {
         
         guard let hostString = self.host, let host = Host(rawValue: hostString) else { return }
         let completion = {
-            viewController.navigationController?.popToRootViewController(animated: false)
+            viewController.navigationController?.popToViewController(viewController, animated: false)
             
             switch host {
             case .addDay:

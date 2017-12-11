@@ -249,9 +249,12 @@ final class DogDays: Codable {
     
     public func dogday(startTime: Double) -> DogDay? {
         let filteredDatas = items.filter { (dogDay) -> Bool in
-            return dogDay.startTime?.timeIntervalSince1970 == startTime
+            //오차 0.1
+            let dogDayStartTime = Double(dogDay.startTime?.timeIntervalSince1970 ?? 0)
+            let tolerance = 0.01
+            return dogDayStartTime == startTime || tolerance >= fabs(dogDayStartTime - startTime)
         }
-        guard filteredDatas.isEmpty else { return nil }
+        guard !filteredDatas.isEmpty else { return nil }
         return filteredDatas.first
     }
     
