@@ -13,8 +13,8 @@ extension URL {
         case dogday
     }
     
-    enum Path: String {
-        case addDay = "add_day", deatil
+    enum Host: String {
+        case addDay = "add_day", detail
     }
     
     enum QueryKey: String {
@@ -23,12 +23,12 @@ extension URL {
     
     //dogday://add_day
     public static var addDayURL: URL? {
-        return URL(string: "\(Scheme.dogday.rawValue)://add_day")
+        return URL(string: "\(Scheme.dogday.rawValue)://\(Host.addDay.rawValue)")
     }
     
     //dogday://detail?start_time=1506965
     public static func detailURL(startTime: Double) -> URL? {
-        return URL(string: "\(Scheme.dogday.rawValue)://detail?start_time=\(startTime)")
+        return URL(string: "\(Scheme.dogday.rawValue)://\((Host.detail.rawValue))/?\(QueryKey.startTime.rawValue)=\(startTime)")
     }
     
     public static func isDogdayScheme(_ url: URL) -> Bool {

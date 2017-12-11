@@ -11,24 +11,27 @@ import UIKit
 extension URL {
     public func openURL(viewController: UIViewController) {
         
-        guard let path = Path(rawValue: self.path) else { return }
+        guard let hostString = self.host, let host = Host(rawValue: hostString) else { return }
         let completion = {
             viewController.navigationController?.popToRootViewController(animated: false)
             
-            switch path {
+            switch host {
             case .addDay:
                 let navigationController = UINavigationController(rootViewController: EmptyViewController())
                 viewController.present(navigationController, animated: false, completion: {
-                    viewController.navigationController?.pushViewController(EditViewController(), animated: false)
+                    navigationController.pushViewController(EditViewController(), animated: true)
                 })
-            case .deatil:
+            case .detail:
                 guard let startTimeString = self.queryDictionary?[QueryKey.startTime.rawValue], let startTime = Double(startTimeString), let dogday = DogDays.sharedInstance.dogday(startTime: startTime) else { return }
                 let detailViewController = DetailViewController(with: dogday)
-                viewController.navigationController?.pushViewController(detailViewController, animated: false)
+                viewController.navigationController?.pushViewController(detailViewController, animated: true)
             }
         }
-        
-        viewController.view.window?.rootViewController?.dismiss(animated: false,
-                                                                completion: completion)
+        guard let presentedViewController = viewController.presentedViewController else {
+            completion()
+            return
+        }
+        presentedViewController.dismiss(animated: false,
+                                        completion: completion)
     }
 }

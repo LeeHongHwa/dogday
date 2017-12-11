@@ -20,29 +20,40 @@ class TodayViewController: UIViewController {
     @IBOutlet weak var emptyButton: HHOButton!
     @IBOutlet weak var tableView: UITableView!
     var widgetData = WidgetDatas()
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        NotificationCenter.default.addObserver(self, selector: #selector(userDefaultsDidChanged(_:)),
-                                               name: UserDefaults.didChangeNotification,
-                                               object: nil)
+    var cellHeight: Int!
+    var isUpdateRequired: Bool {
+        if widgetData.isUpdate {
+            widgetData.isUpdate = false
+            widgetData.userDefaults?.set(false, forKey: WidgetDatas.Constants.isUpdateKey.rawValue)
+            widgetData.userDefaults?.synchronize()
+            return true
+        } else {
+            return false
+        }
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        NotificationCenter.default.addObserver(self, selector: #selector(userDefaultsDidChanged(_:)),
-                                               name: UserDefaults.didChangeNotification,
-                                               object: nil)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        setUpEmptyView()
+        self.cellHeight = Int((self.extensionContext?.widgetMaximumSize(for: .compact).height) ?? 0)
+    }
+    
+    func updateViews() {
+        widgetData = WidgetDatas()
+        if widgetData.dogDays.items.isEmpty {
+            tableView.isHidden = true
+            emptyView.isHidden = false
+            setUpEmptyView()
+        } else {
+            if widgetData.dogDays.items.count > 1 {
+                self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+            }
+            emptyView.isHidden = true
+            tableView.isHidden = false
+        }
     }
     
     func setUpEmptyView() {
-        emptyView.isHidden = false
         emptyButton.setTitle("등록하기", for: .normal)
         emptyButton.setTitleColor(UIColor.emptyAddButtonColor, for: .normal)
         emptyButton.setTitleColor(UIColor.darkerColor(currentColor: UIColor.emptyAddButtonColor), for: .highlighted)
@@ -67,26 +78,6 @@ class TodayViewController: UIViewController {
         emptyLabel.textAlignment = .center
     }
     
-    func updateViews() {
-        widgetData = WidgetDatas()
-        if widgetData.dogDays.items.isEmpty || true{
-            tableView.isHidden = true
-            emptyView.isHidden = false
-        } else {
-            if widgetData.dogDays.items.count > 1 {
-                self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-            
-            }
-            emptyView.isHidden = true
-            tableView.isHidden = false
-            tableView.reloadData()
-        }
-    }
-    
-    @objc func userDefaultsDidChanged(_ sender:Any) {
-        updateViews()
-    }
-    
     @IBAction func emptyButtondidTab(_ sender: Any) {
         guard let addDayUrl = URL.addDayURL else { return }
         self.extensionContext?.open(addDayUrl, completionHandler: nil)
@@ -100,22 +91,27 @@ class TodayViewController: UIViewController {
 extension TodayViewController: NCWidgetProviding {
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        completionHandler(NCUpdateResult.newData)
+        if self.isUpdateRequired {
+            tableView.reloadData()
+            completionHandler(NCUpdateResult.newData)
+        } else {
+            completionHandler(NCUpdateResult.noData)
+        }
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-        if activeDisplayMode == .compact {
+        if activeDisplayMode == .compact || widgetData.dogDays.items.isEmpty {
             self.preferredContentSize = maxSize
         } else {
-            self.preferredContentSize = CGSize(width: tableView.contentSize.width
-                , height: tableView.contentSize.height)
+            self.preferredContentSize = CGSize(width: tableView.frame.width
+                , height: CGFloat(cellHeight * widgetData.dogDays.items.count))
         }
     }
 }
 
 extension TodayViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height
+        return CGFloat(cellHeight)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

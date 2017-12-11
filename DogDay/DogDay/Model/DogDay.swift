@@ -194,7 +194,9 @@ final class DogDays: Codable {
     
     public func addDogDay(element: DogDay, isWidget: Bool = false) {
         var tempElement = element
-        tempElement.startTime = Date()
+        if tempElement.startTime == nil {
+            tempElement.startTime = Date()
+        }
         if isWidget {
             WidgetDatas.sharedInstance.add(tempElement)
         }
