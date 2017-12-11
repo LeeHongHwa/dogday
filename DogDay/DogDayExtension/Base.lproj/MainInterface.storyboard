@@ -104,6 +104,9 @@
                                                     <constraint firstAttribute="height" constant="36" id="ggv-XG-gUE"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="emptyButtondidTab:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="EC2-fa-C9b"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

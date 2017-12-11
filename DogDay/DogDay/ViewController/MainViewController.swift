@@ -12,6 +12,7 @@ class MainViewController: BaseViewController {
     var dogDayDatas = DogDays.sharedInstance
     let viewRatio = UIScreen.main.bounds.width/320.0
     lazy var v = MainView(controlBy: self)
+    typealias DoaDayNotificationName = NotificationCenter.DogdayNotificationName
     
     override func loadView() {
         self.view = v
@@ -20,8 +21,13 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView),
-                                               name: NSNotification.Name(DogDays.NotificationName.updateData.rawValue),
+                                               name: NSNotification.Name(DoaDayNotificationName.updateData.rawValue),
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(openUrl(_:)),
+                                               name: NSNotification.Name(DoaDayNotificationName.openURL.rawValue),
+                                               object: nil)
+        
         //set launchScreen
         let launchScreenViewController = LaunchScreenViewController()
         if dogDayDatas.isEmpty {
@@ -49,6 +55,11 @@ class MainViewController: BaseViewController {
     
     @objc private func reloadTableView() {
         self.v.tableView.reloadData()
+    }
+    
+    @objc private func openUrl(_ notificiation: Notification) {
+        guard let url = notificiation.object as? URL else { return }
+        url.openURL(viewController: self)
     }
 }
 

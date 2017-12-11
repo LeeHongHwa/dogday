@@ -64,6 +64,11 @@
 		63CF95C91FAECC3700CB4250 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF95C81FAECC3700CB4250 /* EditView.swift */; };
 		63CF95CC1FAECD3000CB4250 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF95CA1FAECD3000CB4250 /* SettingViewController.swift */; };
 		63E691201FA8B05F0016A478 /* UIView+LayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E6911F1FA8B05F0016A478 /* UIView+LayoutAnchor.swift */; };
+		BE65B28E1FDE6C3800EB6F7C /* URL+Dogday.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE65B28D1FDE6C3800EB6F7C /* URL+Dogday.swift */; };
+		BED08F5B1FDE7ACA0047C817 /* Notification+Dogday.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED08F5A1FDE7ACA0047C817 /* Notification+Dogday.swift */; };
+		BED08F5C1FDE7ACA0047C817 /* Notification+Dogday.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED08F5A1FDE7ACA0047C817 /* Notification+Dogday.swift */; };
+		BED08F801FDE95640047C817 /* URL+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED08F7F1FDE95640047C817 /* URL+Common.swift */; };
+		BED08F811FDE95640047C817 /* URL+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED08F7F1FDE95640047C817 /* URL+Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +147,9 @@
 		63E6911F1FA8B05F0016A478 /* UIView+LayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayoutAnchor.swift"; sourceTree = "<group>"; };
 		68BA828C84BDBFC0BEC38F15 /* Pods-DogDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogDay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DogDay/Pods-DogDay.debug.xcconfig"; sourceTree = "<group>"; };
 		B4C7BBC6A21AEAA99F87BEE5 /* Pods_DogDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE65B28D1FDE6C3800EB6F7C /* URL+Dogday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Dogday.swift"; sourceTree = "<group>"; };
+		BED08F5A1FDE7ACA0047C817 /* Notification+Dogday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Dogday.swift"; sourceTree = "<group>"; };
+		BED08F7F1FDE95640047C817 /* URL+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Common.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +188,9 @@
 				63585AE11FAF450B0035FD35 /* UINavigationController+Color.swift */,
 				631EA0861FBC7E8D0043C7E7 /* UINavigationItem+Convenience.swift */,
 				631EEFC61FC134FF00EBFC52 /* DateFormatter+Convenience.swift */,
+				BE65B28D1FDE6C3800EB6F7C /* URL+Dogday.swift */,
+				BED08F7F1FDE95640047C817 /* URL+Common.swift */,
+				BED08F5A1FDE7ACA0047C817 /* Notification+Dogday.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -387,7 +398,7 @@
 				TargetAttributes = {
 					6320EEC21F88B80B005EC9E9 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -523,9 +534,11 @@
 				631E965C1FC15C5E002F2083 /* String+Empty.swift in Sources */,
 				635283161FBDCCB600766DA9 /* SettingTableViewCell.swift in Sources */,
 				632B271B1F9CA9E700D0DE7A /* EmptyView.swift in Sources */,
+				BED08F801FDE95640047C817 /* URL+Common.swift in Sources */,
 				63056A041FCEF5110092B54B /* LauchScreenViewController.swift in Sources */,
 				631E7CAC1F92361A007CB73E /* MainViewController.swift in Sources */,
 				6375CE3F1FA0CA57004BED12 /* UIImage+Color.swift in Sources */,
+				BE65B28E1FDE6C3800EB6F7C /* URL+Dogday.swift in Sources */,
 				631E7CAD1F92361A007CB73E /* MainView.swift in Sources */,
 				63B9C4171FD58E7F002CC775 /* LicenseListViewController.swift in Sources */,
 				633E2ADE1F93824F00DAFBC5 /* DogDayTableViewCell.swift in Sources */,
@@ -536,6 +549,7 @@
 				631E7CAE1F92361A007CB73E /* BaseView.swift in Sources */,
 				631EA0871FBC7E8D0043C7E7 /* UINavigationItem+Convenience.swift in Sources */,
 				635FC8131FD8252C007987B4 /* WidgetDatas.swift in Sources */,
+				BED08F5B1FDE7ACA0047C817 /* Notification+Dogday.swift in Sources */,
 				632751A21FD3E21B00C25A4C /* LicenseViewController.swift in Sources */,
 				63CF95CC1FAECD3000CB4250 /* SettingViewController.swift in Sources */,
 				638600981FB496D300E31275 /* EmptyViewController.swift in Sources */,
@@ -553,6 +567,7 @@
 			files = (
 				638754911FDD290000DFEAD5 /* UIFont+BaseFont.swift in Sources */,
 				638754931FDD290000DFEAD5 /* UIImage+Color.swift in Sources */,
+				BED08F811FDE95640047C817 /* URL+Common.swift in Sources */,
 				638754901FDD290000DFEAD5 /* String+Empty.swift in Sources */,
 				6387549B1FDD290000DFEAD5 /* DateFormatter+Convenience.swift in Sources */,
 				638754941FDD290000DFEAD5 /* UIView+LayoutAnchor.swift in Sources */,
@@ -564,6 +579,7 @@
 				638754971FDD290000DFEAD5 /* DogDayTextField.swift in Sources */,
 				6387548C1FDD287700DFEAD5 /* DogDay.swift in Sources */,
 				638754981FDD290000DFEAD5 /* DetailLabel.swift in Sources */,
+				BED08F5C1FDE7ACA0047C817 /* Notification+Dogday.swift in Sources */,
 				638754961FDD290000DFEAD5 /* HHOButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,8 +721,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DogDay/DogDay.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9798FKV9BN;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DogDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -726,8 +742,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DogDay/DogDay.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9798FKV9BN;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DogDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

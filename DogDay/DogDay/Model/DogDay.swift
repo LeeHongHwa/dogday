@@ -200,7 +200,7 @@ final class DogDays: Codable {
         }
         self.items.append(tempElement)
         self.sortItems()
-        postUpdateDataNotification()
+        NotificationCenter.postUpdateDataNotification()
     }
     
     public func removeDogDayElement(at index: Int, isWidget: Bool = false) {
@@ -225,7 +225,7 @@ final class DogDays: Codable {
         }
         self.items.insert(newElement, at: index)
         self.sortItems()
-        postUpdateDataNotification()
+        NotificationCenter.postUpdateDataNotification()
     }
     
     private func sortItems() {
@@ -243,6 +243,14 @@ final class DogDays: Codable {
             }.count
         guard widgetSetDataCount < 3 else { return false }
         return true
+    }
+    
+    public func dogday(startTime: Double) -> DogDay? {
+        let filteredDatas = items.filter { (dogDay) -> Bool in
+            return dogDay.startTime?.timeIntervalSince1970 == startTime
+        }
+        guard filteredDatas.isEmpty else { return nil }
+        return filteredDatas.first
     }
     
     public func encoded() {
@@ -290,15 +298,4 @@ final class DogDays: Codable {
         return URL(fileURLWithPath: path)
     }
     
-}
-
-extension DogDays {
-    
-    enum NotificationName: String {
-        case updateData
-    }
-    
-    fileprivate func postUpdateDataNotification() -> Void {
-        NotificationCenter.default.post(name: NSNotification.Name(NotificationName.updateData.rawValue), object: nil)
-    }
 }

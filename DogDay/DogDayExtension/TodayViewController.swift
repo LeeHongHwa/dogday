@@ -6,10 +6,15 @@
 //  Copyright © 2017년 lyhonghwa. All rights reserved.
 //
 
+/*
+ 1. open url
+ 2. default extension size
+ 3.
+ */
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController, NCWidgetProviding {
+class TodayViewController: UIViewController {
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var emptyButton: HHOButton!
@@ -28,6 +33,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         NotificationCenter.default.addObserver(self, selector: #selector(userDefaultsDidChanged(_:)),
                                                name: UserDefaults.didChangeNotification,
                                                object: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateViews()
+        setUpEmptyView()
     }
     
     func setUpEmptyView() {
@@ -56,34 +67,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         emptyLabel.textAlignment = .center
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateViews()
-        setUpEmptyView()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        completionHandler(NCUpdateResult.newData)
-    }
-    
-    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-        if activeDisplayMode == .compact {
-            self.preferredContentSize = maxSize
-        } else {
-            self.preferredContentSize = CGSize(width: tableView.contentSize.width
-                , height: tableView.contentSize.height)
-        }
-    }
-    
     func updateViews() {
         widgetData = WidgetDatas()
         if widgetData.dogDays.items.isEmpty || true{
@@ -103,65 +86,44 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @objc func userDefaultsDidChanged(_ sender:Any) {
         updateViews()
     }
+    
+    @IBAction func emptyButtondidTab(_ sender: Any) {
+        guard let addDayUrl = URL.addDayURL else { return }
+        self.extensionContext?.open(addDayUrl, completionHandler: nil)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }
 
-//
-//    var items : [Todo] = []
-//
-//    @IBOutlet weak var tableView: UITableView!
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
-//
-//    func reloadTable()
-//    {
-//        self.tableView.reloadData()
-//    }
-//
-//    func performUpdate() {
-//        TodoService.sharedInstance.getTodos().then { todos -> Void in
-//            self.items = Array(todos.prefix(2))
-//            self.reloadTable()
-//            }.catch { error in
-//                print("Error: could not load todos")
-//        }
-//    }
-//
-//    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-//        performUpdate()
-//        completionHandler(NCUpdateResult.newData)
-//    }
-//
-//}
-//
-//extension TodayViewController : UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return widgetData.dogDays.items.count
-//    }
-//
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "DogDayExtension", for: indexPath)
-//        cell.textLabel?.text = widgetData.dogDays.items.
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//    }
-//}
+extension TodayViewController: NCWidgetProviding {
+    
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        completionHandler(NCUpdateResult.newData)
+    }
+    
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        if activeDisplayMode == .compact {
+            self.preferredContentSize = maxSize
+        } else {
+            self.preferredContentSize = CGSize(width: tableView.contentSize.width
+                , height: tableView.contentSize.height)
+        }
+    }
+}
 
 extension TodayViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let dogDayData = widgetData.dogDays.items[indexPath.row]
+        guard let startTime = dogDayData.startTime?.timeIntervalSince1970, let detailURL = URL.detailURL(startTime: startTime) else { return }
+        self.extensionContext?.open(detailURL,
+                                    completionHandler: nil)
     }
 }
 
