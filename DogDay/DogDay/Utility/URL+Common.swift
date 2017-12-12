@@ -9,6 +9,7 @@
 import Foundation
 
 extension URL {
+    
     enum Scheme: String {
         case dogday
     }

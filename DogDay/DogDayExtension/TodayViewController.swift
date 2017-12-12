@@ -92,7 +92,7 @@ extension TodayViewController: NCWidgetProviding {
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         if self.isUpdateRequired {
-            tableView.reloadData()
+            updateViews()
             completionHandler(NCUpdateResult.newData)
         } else {
             completionHandler(NCUpdateResult.noData)

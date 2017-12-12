@@ -23,6 +23,8 @@
 		632751A21FD3E21B00C25A4C /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632751A01FD3E21B00C25A4C /* LicenseViewController.swift */; };
 		632751A31FD3E21B00C25A4C /* LicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 632751A11FD3E21B00C25A4C /* LicenseViewController.xib */; };
 		632B271B1F9CA9E700D0DE7A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632B271A1F9CA9E700D0DE7A /* EmptyView.swift */; };
+		632CA44F1FDF6FE300FCE1DC /* UINavigationController+Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632CA44E1FDF6FE300FCE1DC /* UINavigationController+Completion.swift */; };
+		632CA4511FDF753500FCE1DC /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632CA4501FDF753500FCE1DC /* Scheme.swift */; };
 		633E2ADE1F93824F00DAFBC5 /* DogDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2ADD1F93824F00DAFBC5 /* DogDayTableViewCell.swift */; };
 		633E2AE01F938C4600DAFBC5 /* UIColor+BaseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */; };
 		633E2AE21F939FF300DAFBC5 /* UIFont+BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2AE11F939FF300DAFBC5 /* UIFont+BaseFont.swift */; };
@@ -114,6 +116,8 @@
 		632751A01FD3E21B00C25A4C /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		632751A11FD3E21B00C25A4C /* LicenseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LicenseViewController.xib; sourceTree = "<group>"; };
 		632B271A1F9CA9E700D0DE7A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		632CA44E1FDF6FE300FCE1DC /* UINavigationController+Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Completion.swift"; sourceTree = "<group>"; };
+		632CA4501FDF753500FCE1DC /* Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		633E2ADD1F93824F00DAFBC5 /* DogDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDayTableViewCell.swift; sourceTree = "<group>"; };
 		633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+BaseColor.swift"; sourceTree = "<group>"; };
 		633E2AE11F939FF300DAFBC5 /* UIFont+BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+BaseFont.swift"; sourceTree = "<group>"; };
@@ -191,6 +195,7 @@
 				BE65B28D1FDE6C3800EB6F7C /* URL+Dogday.swift */,
 				BED08F7F1FDE95640047C817 /* URL+Common.swift */,
 				BED08F5A1FDE7ACA0047C817 /* Notification+Dogday.swift */,
+				632CA44E1FDF6FE300FCE1DC /* UINavigationController+Completion.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				632028391F9B6FD6006F607F /* DogDay.swift */,
+				632CA4501FDF753500FCE1DC /* Scheme.swift */,
 				635283171FBDCDAF00766DA9 /* DogDaySetting.swift */,
 				635FC8121FD8252C007987B4 /* WidgetDatas.swift */,
 			);
@@ -480,15 +486,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DogDay/Pods-DogDay-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -524,6 +526,7 @@
 				633E2AE01F938C4600DAFBC5 /* UIColor+BaseColor.swift in Sources */,
 				635283181FBDCDAF00766DA9 /* DogDaySetting.swift in Sources */,
 				63CF95C91FAECC3700CB4250 /* EditView.swift in Sources */,
+				632CA4511FDF753500FCE1DC /* Scheme.swift in Sources */,
 				636C75241FA768E5002FE52E /* DetailView.swift in Sources */,
 				63E691201FA8B05F0016A478 /* UIView+LayoutAnchor.swift in Sources */,
 				633E2AE21F939FF300DAFBC5 /* UIFont+BaseFont.swift in Sources */,
@@ -548,6 +551,7 @@
 				636C75221FA75ED7002FE52E /* GradientScrollView.swift in Sources */,
 				631E7CAE1F92361A007CB73E /* BaseView.swift in Sources */,
 				631EA0871FBC7E8D0043C7E7 /* UINavigationItem+Convenience.swift in Sources */,
+				632CA44F1FDF6FE300FCE1DC /* UINavigationController+Completion.swift in Sources */,
 				635FC8131FD8252C007987B4 /* WidgetDatas.swift in Sources */,
 				BED08F5B1FDE7ACA0047C817 /* Notification+Dogday.swift in Sources */,
 				632751A21FD3E21B00C25A4C /* LicenseViewController.swift in Sources */,

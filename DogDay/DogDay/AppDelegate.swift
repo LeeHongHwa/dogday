@@ -14,17 +14,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        setupKeyWindow()
+        Scheme.sharedInstance.url = launchOptions?[UIApplicationLaunchOptionsKey.url] as? URL
+        setupKeyWindow(schemeURL: Scheme.sharedInstance.url)
         return true
     }
 
-    private func setupKeyWindow() {
+    private func setupKeyWindow(schemeURL: URL?) {
         window = UIWindow(frame: UIScreen.main.bounds)
         let mainViewController = MainViewController()
+        mainViewController.schemeData.url = schemeURL
         let navigationController = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        LaunchScreenView.show()
+        if Scheme.sharedInstance.isShowLaunchScreen && schemeURL == nil {
+            LaunchScreenView.show()
+        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -36,8 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DogDays.sharedInstance.encoded()
         WidgetDatas.sharedInstance.encoded()
         WidgetDatas.sharedInstance.synchronize()
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -45,17 +47,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
+//
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         guard URL.isDogdayScheme(url) else { return false }
+        Scheme.sharedInstance.url = url
         NotificationCenter.postOpenURLNotification(url: url)
         return true
     }
-
 }

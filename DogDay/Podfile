@@ -6,7 +6,6 @@ target 'DogDay' do
   use_frameworks!
 
   pod 'SwipeCellKit'
-  pod 'Firebase/AdMob'
   pod 'GoogleAnalytics'
   
 end

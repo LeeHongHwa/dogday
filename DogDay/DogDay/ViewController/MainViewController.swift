@@ -10,6 +10,7 @@ import SwipeCellKit
 
 class MainViewController: BaseViewController {
     var dogDayDatas = DogDays.sharedInstance
+    var schemeData = Scheme()
     let viewRatio = UIScreen.main.bounds.width/320.0
     lazy var v = MainView(controlBy: self)
     typealias DoaDayNotificationName = NotificationCenter.DogdayNotificationName
@@ -24,25 +25,25 @@ class MainViewController: BaseViewController {
                                                name: NSNotification.Name(DoaDayNotificationName.updateData.rawValue),
                                                object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(openUrl(_:)),
+        NotificationCenter.default.addObserver(self, selector: #selector(openUrl(notificiation:)),
                                                name: NSNotification.Name(DoaDayNotificationName.openURL.rawValue),
                                                object: nil)
         
-        //set launchScreen
-        let launchScreenViewController = LaunchScreenViewController()
-        if dogDayDatas.isEmpty {
-            let navigationController = UINavigationController(rootViewController: EmptyViewController())
-            self.present(navigationController, animated: false, completion: {
-                navigationController.present(launchScreenViewController, animated: false, completion: nil)
-            })
-        } else {
-            self.present(launchScreenViewController, animated: false, completion:nil)
+        if schemeData.url == nil && Scheme.sharedInstance.isShowLaunchScreen {
+            Scheme.sharedInstance.isShowLaunchScreen = false
+            presentLaunchScreenViewController()
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.showBackgroundColor()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let url = schemeData.url else { return }
+        openUrl(url)
     }
     
     deinit {
@@ -53,12 +54,43 @@ class MainViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func presentLaunchScreenViewController() {
+        let launchScreenViewController = LaunchScreenViewController()
+        if dogDayDatas.isEmpty {
+            let navigationController = UINavigationController(rootViewController: EmptyViewController())
+            self.present(navigationController, animated: false, completion: {
+                navigationController.present(launchScreenViewController, animated: false, completion: nil)
+            })
+        } else {
+            self.present(launchScreenViewController, animated: false, completion:nil)
+        }
+    }
+    
     @objc private func reloadTableView() {
         self.v.tableView.reloadData()
     }
     
-    @objc private func openUrl(_ notificiation: Notification) {
+    @objc private func openUrl(notificiation: Notification) {
         guard let url = notificiation.object as? URL else { return }
+        
+        let completion: (() -> Swift.Void) = {
+            self.navigationController?.popToRootViewController(animated: true,
+                                                               completion: {[weak self] in
+                                                                self?.openUrl(url)
+            })
+        }
+        guard let presentedViewController = self.presentedViewController else {
+            completion()
+            return
+        }
+        
+        presentedViewController.dismiss(animated: false,
+                                        completion: completion)
+    }
+    
+    private func openUrl(_ url:URL) {
+        schemeData.url = nil
+        Scheme.sharedInstance.url = nil
         url.openURL(viewController: self)
     }
 }
