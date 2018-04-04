@@ -302,5 +302,4 @@ final class DogDays: Codable {
         let path = document.appending("/currentDogDay.data")
         return URL(fileURLWithPath: path)
     }
-    
 }

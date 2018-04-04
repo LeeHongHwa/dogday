@@ -17,11 +17,9 @@ protocol ViewType: class {
 class BaseView<ViewController: ViewControllerType>: UIView, ViewType {
     
     // MARK: Properties
-    
     weak var vc: ViewController!
     
     // MARK: Initialize
-    
     required init(controlBy viewController: ViewController) {
         vc = viewController
         super.init(frame: UIScreen.main.bounds)
@@ -43,7 +41,6 @@ class BaseView<ViewController: ViewControllerType>: UIView, ViewType {
     }
     
     // MARK: Deinit
-    
     deinit {
          print("\(self) has deinitialized")
     }

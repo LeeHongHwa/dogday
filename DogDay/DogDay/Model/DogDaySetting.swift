@@ -10,7 +10,6 @@ import Foundation
 
 //설정에 사용할 모델
 struct DogDaySetting {
-    
     let title: String
     let description: String?
     let url: String?
@@ -18,7 +17,6 @@ struct DogDaySetting {
     var isContainDetailInfo: Bool {
         return url != nil || detail != nil
     }
-    
 }
 
 extension DogDaySetting {
