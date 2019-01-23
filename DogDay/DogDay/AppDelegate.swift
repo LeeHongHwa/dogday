@@ -13,8 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Scheme.sharedInstance.url = launchOptions?[UIApplicationLaunchOptionsKey.url] as? URL
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Scheme.sharedInstance.url = launchOptions?[UIApplication.LaunchOptionsKey.url] as? URL
         setupKeyWindow(schemeURL: Scheme.sharedInstance.url)
         return true
     }
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         guard URL.isDogdayScheme(url) else { return false }
         Scheme.sharedInstance.url = url
         NotificationCenter.postOpenURLNotification(url: url)

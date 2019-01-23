@@ -103,14 +103,12 @@ class GradientScrollView: UIScrollView {
         var index: Int!
         let absoluteOffsetPercentage = self.contentOffset.x/self.frame.size.width
         
-        switch scrollDirection {
+        switch scrollDirection! {
         case .left:
             index = Int(floor(absoluteOffsetPercentage))
             
         case .right:
             index = Int(ceil(absoluteOffsetPercentage))
-            
-        default: return
         }
         
         let startPoint = self.frame.width * floor(absoluteOffsetPercentage)

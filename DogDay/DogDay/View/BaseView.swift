@@ -10,7 +10,7 @@ import UIKit
 
 protocol ViewType: class {
     associatedtype ViewController: ViewControllerType
-    weak var vc: ViewController! { get }
+    var vc: ViewController! { get }
     init(controlBy viewController: ViewController)
 }
 

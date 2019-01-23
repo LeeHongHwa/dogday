@@ -12,17 +12,17 @@ extension UINavigationController {
     
     public func clearBackgroundColor() {
         self.setNavigationBarHidden(false, animated: false)
-        self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationBar.setBackgroundColor(UIColor.clear)
     }
     
     public func showBackgroundColor() {
         self.setNavigationBarHidden(false, animated: false)
-        self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)]
+        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)]
         self.navigationBar.setBackgroundColor(UIColor.white)
     }
     
-    override open var childViewControllerForStatusBarStyle: UIViewController? {
+    override open var childForStatusBarStyle: UIViewController? {
         return self.topViewController
     }
 }
