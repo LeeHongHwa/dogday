@@ -41,5 +41,10 @@ extension UIImage {
     static var beauty: UIImage {
         return #imageLiteral(resourceName: "detail_beauty")
     }
-    
+    static var snack: UIImage {
+        return #imageLiteral(resourceName: "detail_snack")
+    }
+    static var bath: UIImage {
+        return #imageLiteral(resourceName: "detail_bath")
+    }
 }

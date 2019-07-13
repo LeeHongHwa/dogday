@@ -8,12 +8,22 @@
 
 import SwipeCellKit
 
-class MainViewController: BaseViewController {
-    var dogDayDatas = DogDays.sharedInstance
-    var schemeData = Scheme()
-    let viewRatio = UIScreen.main.bounds.width/320.0
-    lazy var v = MainView(controlBy: self)
+final class MainViewController: BaseViewController {
     typealias DoaDayNotificationName = NotificationCenter.DogdayNotificationName
+    
+    private var dogDayDatas = DogDays.instance
+    private let schemeData: Scheme
+    private let viewRatio = UIScreen.main.bounds.width/320.0
+    private lazy var v = MainView(controlBy: self)
+    
+    public init(schemeData: Scheme) {
+        self.schemeData = schemeData
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         self.view = v
@@ -29,8 +39,8 @@ class MainViewController: BaseViewController {
                                                name: NSNotification.Name(DoaDayNotificationName.openURL.rawValue),
                                                object: nil)
         
-        if schemeData.url == nil && Scheme.sharedInstance.isShowLaunchScreen {
-            Scheme.sharedInstance.isShowLaunchScreen = false
+        if schemeData.url == nil && Scheme.instance.isShowLaunchScreen {
+            Scheme.instance.isShowLaunchScreen = false
             presentLaunchScreenViewController()
         }
     }
@@ -90,7 +100,7 @@ class MainViewController: BaseViewController {
     
     private func openUrl(_ url:URL) {
         schemeData.url = nil
-        Scheme.sharedInstance.url = nil
+        Scheme.instance.url = nil
         url.openURL(viewController: self)
     }
 }

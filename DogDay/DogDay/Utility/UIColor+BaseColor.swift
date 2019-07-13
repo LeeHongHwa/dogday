@@ -109,6 +109,14 @@ extension UIColor: HighlightedColor{
     static var beauty: UIColor {
         return UIColor(red: 79, green: 195, blue: 247)
     }
+    
+    static var snack: UIColor {
+        return UIColor(red: 255, green: 165, blue: 75)
+    }
+    
+    static var bath: UIColor {
+        return UIColor(red: 101, green: 165, blue: 253)
+    }
 }
 
 protocol HighlightedColor {

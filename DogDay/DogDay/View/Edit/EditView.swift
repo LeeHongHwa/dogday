@@ -44,12 +44,14 @@ class EditView: BaseView<EditViewController> {
                                                       y: 0,
                                                       width: self.frame.width,
                                                       height: CGFloat(472)),
-                                        gradientColors: [UIColor(red: 248, green: 143, blue: 179),
-                                                         UIColor(red: 128, green: 203, blue: 196),
-                                                         UIColor(red: 255, green: 166, blue: 166),
-                                                         UIColor(red: 123, green: 197, blue: 216),
-                                                         UIColor(red: 79, green: 195, blue: 247)])
-        scrollView.addContentsViews(images: [#imageLiteral(resourceName: "detail_beauty"), #imageLiteral(resourceName: "detail_heart"), #imageLiteral(resourceName: "detail_pill"), #imageLiteral(resourceName: "detail_Animal Hospital"), #imageLiteral(resourceName: "detail_Vaccination"), #imageLiteral(resourceName: "detail_beauty"), #imageLiteral(resourceName: "detail_heart")])
+                                        gradientColors: [UIColor.heartWorm,
+                                                         UIColor.pill,
+                                                         UIColor.heart,
+                                                         UIColor.vaccination,
+                                                         UIColor.beauty,
+                                                         UIColor.snack,
+                                                         UIColor.bath])
+        scrollView.addContentsViews(images: [#imageLiteral(resourceName: "detail_bath"), #imageLiteral(resourceName: "detail_heart"), #imageLiteral(resourceName: "detail_pill"), #imageLiteral(resourceName: "detail_Animal Hospital"), #imageLiteral(resourceName: "detail_Vaccination"), #imageLiteral(resourceName: "detail_beauty"), #imageLiteral(resourceName: "detail_snack"), #imageLiteral(resourceName: "detail_bath"), #imageLiteral(resourceName: "detail_heart")])
         
         baseScrollView.backgroundColor = UIColor.white
         

@@ -14,7 +14,7 @@ enum ModelError: Error {
 }
 
 enum DogDayType: Int, Codable {
-    case heartWorm, pill, heart, vaccination, beauty
+    case heartWorm, pill, heart, vaccination, beauty, snack, bath
     
     typealias VisualData = (color: UIColor, image: UIImage)
     
@@ -30,6 +30,10 @@ enum DogDayType: Int, Codable {
             return (color: UIColor.vaccination, image: UIImage.vaccination)
         case .beauty:
             return (color: UIColor.beauty, image: UIImage.beauty)
+        case .snack:
+            return (color: UIColor.snack, image: UIImage.snack)
+        case .bath:
+            return (color: UIColor.bath, image: UIImage.bath)
         }
     }
 }
@@ -131,12 +135,14 @@ struct DogDay: Codable, Equatable {
     
     //등록할때 저장 할수 있는가에 대한 Bool값
     public var possibleToSave: SaveError {
-        guard title != nil, let fullEndDate = fullEndDate else { return .emptyValue }
+        guard title != nil, fullEndDate != nil else { return .emptyValue }
+        /* 이전 날짜 설정
         if fullEndDate < Date() {
             return .emptyValue
         }
+         */
         
-        if !DogDays.sharedInstance.possibleToSaveWidget() && self.widgetSetting == true {
+        if !DogDays.instance.possibleToSaveWidget() && self.widgetSetting == true {
             return .exceedValue
         }
         
@@ -171,6 +177,12 @@ struct DogDay: Codable, Equatable {
         case DogDayType.beauty.rawValue:
             self.dogDayType = .beauty
             
+        case DogDayType.snack.rawValue:
+            self.dogDayType = .snack
+            
+        case DogDayType.bath.rawValue:
+            self.dogDayType = .bath
+            
         default:
             break
         }
@@ -181,7 +193,7 @@ struct DogDay: Codable, Equatable {
 final class DogDays: Codable {
     
     //singleton
-    public static let sharedInstance = DogDays.decode()
+    public static let instance = DogDays.decode()
     
     var items: [DogDay] = []
     
@@ -198,7 +210,7 @@ final class DogDays: Codable {
             tempElement.startTime = Date()
         }
         if isWidget {
-            WidgetDatas.sharedInstance.add(tempElement)
+            WidgetDatas.instance.add(tempElement)
         }
         self.items.append(tempElement)
         self.sortItems()
@@ -209,7 +221,7 @@ final class DogDays: Codable {
         guard index < self.items.count else { return }
         let removedData = self.items.remove(at: index)
         if isWidget {
-            WidgetDatas.sharedInstance.remove(removedData)
+            WidgetDatas.instance.remove(removedData)
         }
     }
     
@@ -222,7 +234,7 @@ final class DogDays: Codable {
     public func editDogDayElement(at index: Int, newElement:DogDay, isWidget: Bool = false) {
         let oldData = self.items.remove(at: index)
         if isWidget {
-            WidgetDatas.sharedInstance.edit(oldData: oldData,
+            WidgetDatas.instance.edit(oldData: oldData,
                                             newData: newElement)
         }
         self.items.insert(newElement, at: index)

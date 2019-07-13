@@ -25,6 +25,7 @@
 		632B271B1F9CA9E700D0DE7A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632B271A1F9CA9E700D0DE7A /* EmptyView.swift */; };
 		632CA44F1FDF6FE300FCE1DC /* UINavigationController+Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632CA44E1FDF6FE300FCE1DC /* UINavigationController+Completion.swift */; };
 		632CA4511FDF753500FCE1DC /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632CA4501FDF753500FCE1DC /* Scheme.swift */; };
+		632DB76221F8ABA40033B64A /* TableView+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632DB76121F8ABA40033B64A /* TableView+Convenience.swift */; };
 		633E2ADE1F93824F00DAFBC5 /* DogDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2ADD1F93824F00DAFBC5 /* DogDayTableViewCell.swift */; };
 		633E2AE01F938C4600DAFBC5 /* UIColor+BaseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */; };
 		633E2AE21F939FF300DAFBC5 /* UIFont+BaseFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E2AE11F939FF300DAFBC5 /* UIFont+BaseFont.swift */; };
@@ -118,6 +119,7 @@
 		632B271A1F9CA9E700D0DE7A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		632CA44E1FDF6FE300FCE1DC /* UINavigationController+Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Completion.swift"; sourceTree = "<group>"; };
 		632CA4501FDF753500FCE1DC /* Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
+		632DB76121F8ABA40033B64A /* TableView+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Convenience.swift"; sourceTree = "<group>"; };
 		633E2ADD1F93824F00DAFBC5 /* DogDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDayTableViewCell.swift; sourceTree = "<group>"; };
 		633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+BaseColor.swift"; sourceTree = "<group>"; };
 		633E2AE11F939FF300DAFBC5 /* UIFont+BaseFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+BaseFont.swift"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		63158D8F1F923DEF0027CBEA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				632DB76021F8AB100033B64A /* View */,
 				633E2ADF1F938C4600DAFBC5 /* UIColor+BaseColor.swift */,
 				631E965B1FC15C5E002F2083 /* String+Empty.swift */,
 				633E2AE11F939FF300DAFBC5 /* UIFont+BaseFont.swift */,
@@ -285,6 +288,14 @@
 				6320EED21F88B80C005EC9E9 /* Info.plist */,
 			);
 			path = DogDay;
+			sourceTree = "<group>";
+		};
+		632DB76021F8AB100033B64A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				632DB76121F8ABA40033B64A /* TableView+Convenience.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		635283141FBDCC7C00766DA9 /* Setting */ = {
@@ -403,7 +414,8 @@
 				TargetAttributes = {
 					6320EEC21F88B80B005EC9E9 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						LastSwiftMigration = 1020;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -412,8 +424,8 @@
 					};
 					63B9C41C1FD59482002CC775 = {
 						CreatedOnToolsVersion = 9.1;
-						LastSwiftMigration = 1010;
-						ProvisioningStyle = Automatic;
+						LastSwiftMigration = 1020;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -470,7 +482,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DogDay/Pods-DogDay-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DogDay/Pods-DogDay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -479,7 +491,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DogDay/Pods-DogDay-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DogDay/Pods-DogDay-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A33F72E6B4AF0282B0FEA73F /* [CP] Check Pods Manifest.lock */ = {
@@ -546,6 +558,7 @@
 				6320EEC71F88B80B005EC9E9 /* AppDelegate.swift in Sources */,
 				6375CE411FA0CF95004BED12 /* HHOButton.swift in Sources */,
 				63CF95C51FAECAE200CB4250 /* EditViewController.swift in Sources */,
+				632DB76221F8ABA40033B64A /* TableView+Convenience.swift in Sources */,
 				63585AE01FAF378B0035FD35 /* DogDayTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,16 +726,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DogDay/DogDay.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9798FKV9BN;
 				INFOPLIST_FILE = DogDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.lyhonghwa.DogDay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = DogDay_Debug;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -734,16 +748,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DogDay/DogDay.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9798FKV9BN;
 				INFOPLIST_FILE = DogDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.lyhonghwa.DogDay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				PROVISIONING_PROFILE_SPECIFIER = DogDay_AppStore;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -752,15 +767,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DogDayExtension/DogDayExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9798FKV9BN;
 				INFOPLIST_FILE = DogDayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.lyhonghwa.DogDay.DogDayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = DogDayExtension_Debug;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -769,15 +785,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DogDayExtension/DogDayExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9798FKV9BN;
 				INFOPLIST_FILE = DogDayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.lyhonghwa.DogDay.DogDayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = DogDayExtension_AppStore;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

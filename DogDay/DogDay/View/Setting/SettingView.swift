@@ -21,7 +21,7 @@ class SettingView: BaseView<SettingViewController> {
         vc.navigationItem.title = "설정"
         
         //tableview
-        tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
+        tableView.register(type: SettingTableViewCell.self)
         tableView.rowHeight = UI.cellHeight
         tableView.sectionHeaderHeight = UI.cellHeight
         addSubview(tableView)

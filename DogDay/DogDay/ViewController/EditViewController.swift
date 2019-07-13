@@ -58,7 +58,7 @@ class EditViewController: BaseViewController {
         case .exceedValue://위젯 초과
             let alert = UIAlertController(title: "위젯설정", message: "위젯설정은 3개까지 등록이 가능합니다.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인",
-                                          style: .cancel, handler: {[weak self] _ in
+                                          style: .cancel, handler: { [weak self] _ in
                                             guard let `self` = self else { return }
                                             self.v.widgetSwitch.setOn(false, animated: true)
                                             self.dogDayData.widgetSetting = false
@@ -83,9 +83,9 @@ extension EditViewController {
     @objc func registerButtonDidTab(_ sender:Any) {
         dogDayData.setDogDayType(with: v.scrollView.currentIndex())
         if let dogDayDataIndex = dogDayDataIndex {
-            DogDays.sharedInstance.editDogDayElement(at: dogDayDataIndex, newElement: dogDayData, isWidget: true)
+            DogDays.instance.editDogDayElement(at: dogDayDataIndex, newElement: dogDayData, isWidget: true)
         } else {
-            DogDays.sharedInstance.addDogDay(element: dogDayData, isWidget: true)
+            DogDays.instance.addDogDay(element: dogDayData, isWidget: true)
         }
         
         if self.presentingViewController == nil {

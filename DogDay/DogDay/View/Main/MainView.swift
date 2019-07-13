@@ -17,7 +17,7 @@ class MainView: BaseView<MainViewController> {
         vc.navigationItem.title = "DogDay"
         
         //tableview
-        tableView.register(DogDayTableViewCell.self, forCellReuseIdentifier: DogDayTableViewCell.identifier)
+        tableView.register(type: DogDayTableViewCell.self)
         tableView.separatorStyle = .none
         
         addSubview(tableView)

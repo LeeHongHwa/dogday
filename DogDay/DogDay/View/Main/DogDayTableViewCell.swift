@@ -10,8 +10,6 @@ import SwipeCellKit
 
 class DogDayTableViewCell: SwipeTableViewCell {
     
-    static let identifier = String(describing: DogDayTableViewCell.self)
-    
     private let endDateLabel = UILabel()
     private let remainingDaysLabel = UILabel()
     private let nameLabel = UILabel()

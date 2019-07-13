@@ -9,7 +9,12 @@
 import Foundation
 
 final class Scheme {
-    static let sharedInstance = Scheme()
-    var url: URL?
-    var isShowLaunchScreen = true
+    public static let instance = Scheme()
+    public var url: URL?
+    public var isShowLaunchScreen: Bool
+    
+    init(url: URL? = nil) {
+        self.url = nil
+        self.isShowLaunchScreen = true
+    }
 }

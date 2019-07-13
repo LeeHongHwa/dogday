@@ -14,30 +14,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Scheme.sharedInstance.url = launchOptions?[UIApplication.LaunchOptionsKey.url] as? URL
-        setupKeyWindow(schemeURL: Scheme.sharedInstance.url)
+        Scheme.instance.url = launchOptions?[.url] as? URL
+        setupKeyWindow(with: Scheme.instance.url)
         return true
     }
 
-    private func setupKeyWindow(schemeURL: URL?) {
+    private func setupKeyWindow(with url: URL?) {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let mainViewController = MainViewController()
-        mainViewController.schemeData.url = schemeURL
+        let mainViewController = MainViewController(schemeData: Scheme(url: url))
         let navigationController = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        if Scheme.sharedInstance.isShowLaunchScreen && schemeURL == nil {
-            LaunchScreenView.show()
-        }
+        guard Scheme.instance.isShowLaunchScreen && url == nil else { return }
+        LaunchScreenView.show()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        DogDays.sharedInstance.encoded()
-        WidgetDatas.sharedInstance.encoded()
-        WidgetDatas.sharedInstance.synchronize()
+        DogDays.instance.encoded()
+        WidgetDatas.instance.encoded()
+        WidgetDatas.instance.synchronize()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -51,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         guard URL.isDogdayScheme(url) else { return false }
-        Scheme.sharedInstance.url = url
+        Scheme.instance.url = url
         NotificationCenter.postOpenURLNotification(url: url)
         return true
     }

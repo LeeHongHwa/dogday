@@ -1,20 +1,20 @@
 PODS:
   - GoogleAnalytics (3.17.0)
-  - SwipeCellKit (2.0.0)
+  - SwipeCellKit (2.6.0)
 
 DEPENDENCIES:
   - GoogleAnalytics
   - SwipeCellKit
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - GoogleAnalytics
     - SwipeCellKit
 
 SPEC CHECKSUMS:
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
-  SwipeCellKit: 349c61ffde96ac3ae51c2691a03e421b5b29ee98
+  SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
 
 PODFILE CHECKSUM: 3bc9781c4b82369581a9af74086e88429b5bc952
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.7.3

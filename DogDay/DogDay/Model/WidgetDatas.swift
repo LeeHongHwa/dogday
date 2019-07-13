@@ -15,7 +15,7 @@ final class WidgetDatas {
         case isUpdateKey
     }
 
-    static let sharedInstance = WidgetDatas()
+    static let instance = WidgetDatas()
     
     let userDefaults: UserDefaults?
     let dogDays: DogDays
@@ -53,7 +53,7 @@ final class WidgetDatas {
     
     public func edit(oldData: DogDay, newData: DogDay) {
         if oldData.widgetSetting || newData.widgetSetting {
-            guard let index = self.dogDays.items.index(of: oldData) else { return }
+            guard let index = self.dogDays.items.firstIndex(of: oldData) else { return }
             self.dogDays.editDogDayElement(at: index, newElement: newData)
             self.isUpdate = true
         } else {
@@ -63,7 +63,7 @@ final class WidgetDatas {
     
     public func remove(_ data: DogDay) {
         if data.widgetSetting {
-            guard let index = self.dogDays.items.index(of: data) else { return }
+            guard let index = self.dogDays.items.firstIndex(of: data) else { return }
             self.dogDays.items.remove(at: index)
             self.isUpdate = true
         } else {

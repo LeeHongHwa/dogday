@@ -19,7 +19,7 @@ extension URL {
                 navigationController.pushViewController(EditViewController(), animated: true)
             })
         case .detail:
-            guard let startTimeString = self.queryDictionary?[QueryKey.startTime.rawValue], let startTime = Double(startTimeString), let dogday = DogDays.sharedInstance.dogday(startTime: startTime) else { return }
+            guard let startTimeString = self.queryDictionary?[QueryKey.startTime.rawValue], let startTime = Double(startTimeString), let dogday = DogDays.instance.dogday(startTime: startTime) else { return }
             let detailViewController = DetailViewController(with: dogday)
             viewController.navigationController?.pushViewController(detailViewController, animated: true)
         }
